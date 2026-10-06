@@ -31,7 +31,7 @@ article p{font-size:1.1rem;line-height:1.75;margin:0 0 1.35em}
 .sample{border-left:2px solid var(--line);padding-left:20px;color:var(--text)}
 .callout{margin:56px 0;padding:0;border:0}
 .callout::before{content:"";display:block;width:48px;height:3px;background:var(--rust);margin-bottom:22px}
-.callout p{font-family:var(--font-display);font-size:clamp(1.55rem,3vw,2rem);line-height:1.28;color:var(--ink);margin:0;text-wrap:balance}
+.callout p{font-family:var(--font-sans);font-style:italic;font-weight:400;font-size:clamp(1.383rem,calc(3vw - 2.67px),1.833rem);line-height:1.35;color:var(--ink);margin:0;text-wrap:balance}
 footer{border-top:1px solid var(--line);padding:32px 24px 64px;text-align:center;font-size:.9rem;color:var(--muted)}
 footer a{color:var(--rust-text)}
 @media (max-width:900px){.topnav-inner{padding:12px 28px}}
