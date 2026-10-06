@@ -601,12 +601,17 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
   .topnav nav a, .topnav nav button.nav-writing{font-size:.85rem; padding:8px 6px;}
 }
 @media (max-width:360px){.topnav-inner{padding-left:var(--space-2); padding-right:var(--space-2);} .topnav .brand{font-size:.9rem;} .topnav nav a, .topnav nav button.nav-writing{font-size:.8rem; padding:8px 4px;}}
+
+@media (min-width:901px){
+  .section-scroll, .intro-inner, .topnav-inner, .about-divider{padding-left:60px; padding-right:60px;}
+  .gallery, .teaser-wrap.wide-card{max-width:calc(75% + 48px);}
+}
 </style>
 
 <div class="page">
 <div class="wing-fixed" id="wingFixed" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topnav" id="top"><div class="topnav-inner"><a class="brand" href="#top" data-nav="top">Elizabeth Maki</a><nav aria-label="Primary"><a href="#top" data-nav="top">Home</a><div class="nav-dd"><button type="button" class="nav-writing" id="navWriting" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true">Writing <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-menu" id="navMenu"><a href="https://www.elizabethmaki.com/your-team-isnt-bad-at-ai-its-grieving" target="_blank" rel="noopener">Your team isn&#39;t bad at AI. They&#39;re grieving.<span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.elizabethmaki.com/content" target="_blank" rel="noopener">The same brand, four different jobs<span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.elizabethmaki.com/brand-voice-is-language-cognition" target="_blank" rel="noopener">Brand voice is language + cognition<span class="sr-only"> (opens in a new tab)</span></a></div></div><a href="#about" data-nav="about">About</a></nav></div></header>
+<header class="topnav" id="top"><div class="topnav-inner"><a class="brand" href="#top" data-nav="top">Elizabeth Maki</a><nav aria-label="Primary"><a href="#top" data-nav="top">Home</a><a href="#about" data-nav="about">About</a><div class="nav-dd"><button type="button" class="nav-writing" id="navWriting" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true">Writing <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-menu" id="navMenu"><a href="https://www.elizabethmaki.com/your-team-isnt-bad-at-ai-its-grieving" target="_blank" rel="noopener">Your team isn&#39;t bad at AI. They&#39;re grieving.<span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.elizabethmaki.com/content" target="_blank" rel="noopener">The same brand, four different jobs<span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.elizabethmaki.com/brand-voice-is-language-cognition" target="_blank" rel="noopener">Brand voice is language + cognition<span class="sr-only"> (opens in a new tab)</span></a></div></div></nav></div></header>
 <main id="main" tabindex="-1">
 <h1 class="sr-only">Elizabeth Maki, brand designer</h1>
 <div class="intro">
@@ -1028,13 +1033,13 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
   <div class="section-scroll" id="about-scroll">
     <h2 class="reveal pt">About me</h2>
     <div class="about-grid reveal">
-      <figure class="about-portrait"><img src="img/headshot-bw.jpg" alt="Elizabeth Maki" loading="lazy"></figure>
+      <figure class="about-portrait"><img src="img/headshot-bw.jpg" alt="Elizabeth Maki"></figure>
       <div class="about-copy">
         <p class="about-lead">I'm a brand designer based in Seattle. I figure out what a company promises that's unique to them and matters to their customer. Then I direct, design and write everything that goes out into the world to make that case.</p>
         <p>Before brand, I ran strategy and communications for education programs, so I write like a writer, I ship like a program manager, and I care whether a brand system gets used.</p>
         <p>Outside of work I row, take photos of the tiles and typography in the wild, read genre fiction, eat a lot of ice cream, and try to be near a river or a lake whenever possible. A Saturday afternoon at my art table, drawing or painting, is my favorite kind of day.</p>
         <p>I wanted to be a writer growing up, until I took my first college creative writing class and hated everyone in it. I'm terrible at bringing a gift for the host but I always do the dishes. It will take me 3 to 5 business days to answer your text even if you're my sister, but I will absolutely show up to water your garden while you're out of town. None of it resolves, but I find I like it better that way.</p>
-        <figure class="about-kid"><img src="img/about-me.jpg" alt="Elizabeth Maki as a kid, already wanting to be a writer" loading="lazy" /><figcaption>Me, in the 90s, desperately wanting to be a writer.</figcaption></figure>
+        <figure class="about-kid"><img src="img/about-me.jpg" alt="Elizabeth Maki as a kid, already wanting to be a writer" /><figcaption>Me, in the 90s, desperately wanting to be a writer.</figcaption></figure>
       </div>
     </div>
   </div>
@@ -1054,7 +1059,7 @@ function makeMedia(item){
     return v;
   }
   const img = document.createElement('img');
-  img.src = item.src; img.alt = item.alt; img.loading = 'lazy';
+  img.src = item.src; img.alt = item.alt;
   return img;
 }
 
@@ -1089,7 +1094,7 @@ function initGallery(root, GALLERY){
       btn.setAttribute('aria-pressed', String(i === active));
       btn.setAttribute('aria-label', item.caption);
       const img = document.createElement('img');
-      img.src = item.poster || item.src; img.alt = ''; img.loading = 'lazy';
+      img.src = item.poster || item.src; img.alt = '';
       if (item.video) btn.classList.add('is-video');
       if (item.fit === 'contain') img.classList.add('fit-contain');
       btn.appendChild(img);
