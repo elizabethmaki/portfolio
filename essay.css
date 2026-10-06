@@ -29,8 +29,8 @@ h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.4rem,5.2vw,
 h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.7rem,3vw,2.1rem);line-height:1.2;color:var(--ink);margin:64px 0 18px}
 article p{font-size:1.1rem;line-height:1.75;margin:0 0 1.35em}
 .sample{border-left:2px solid var(--line);padding-left:20px;color:var(--text)}
-.callout{position:relative;margin:56px 0;padding:0 0 0 28px;border:0}
-.callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:url(../img/pull-gradient.webp) top left/8px 200px no-repeat;background-color:var(--rust)}
+.callout{position:relative;margin:56px 0;padding:0 0 0 68px;border:0}
+.callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:40px;background:url(../img/pull-gradient.webp) top left/40px 200px no-repeat;background-color:var(--rust)}
 .callout p{font-family:var(--font-sans);font-style:italic;font-weight:400;font-size:clamp(1.216rem,calc(3vw - 5.33px),1.666rem);line-height:1.4;color:var(--ink);margin:0;text-wrap:balance}
 footer{border-top:1px solid var(--line);padding:32px 24px 64px;text-align:center;font-size:.9rem;color:var(--muted)}
 footer a{color:var(--rust-text)}
