@@ -516,8 +516,8 @@ h1, h2.pt{
 .wide-card .learn-more{font-size:1.05rem;}
 
 .wide-card > .teaser-row{grid-column:1; display:flex; justify-content:space-between; align-items:flex-start; gap:var(--space-5);}
-.wide-card .teaser-row .teaser{margin:0; font-size:1.05rem; line-height:1.6; max-width:50ch;}
-.wide-card .teaser-row .stat{font-size:1.05rem; line-height:1.6; font-weight:500; margin:0; max-width:30ch; text-wrap:pretty;}
+.wide-card .teaser-row .teaser{margin:0; font-size:1.05rem; line-height:1.6; max-width:none; flex:1 1 auto;}
+.wide-card .teaser-row .stat{font-size:1.05rem; line-height:1.6; font-weight:500; margin:0; flex:0 1 26ch; max-width:30ch; text-wrap:pretty;}
 @media (max-width:900px){.wide-card > .teaser-row{flex-direction:column; gap:var(--space-2);} .wide-card .teaser-row .stat{max-width:none;}}
 
 .wide-card .glass-card{position:relative;}
@@ -606,6 +606,10 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
   .section-scroll, .intro-inner, .topnav-inner, .about-divider{padding-left:60px; padding-right:60px;}
   .gallery, .teaser-wrap.wide-card{max-width:calc(75% + 48px);}
 }
+
+.teaser-wrap.wide-card{margin-top:-13px;}
+@media (max-width:900px){.teaser-wrap.wide-card{margin-top:-8.5px;}}
+@media (max-width:640px){.teaser-wrap.wide-card{margin-top:-5.5px;}}
 </style>
 
 <div class="page">
