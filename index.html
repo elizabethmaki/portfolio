@@ -619,13 +619,31 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
 .wing-fixed{background:url(img/cecropia-wing-accent.webp) center / contain no-repeat; -webkit-mask-image:none; mask-image:none; height:100vh; height:100lvh; transform:translateZ(0); backface-visibility:hidden; will-change:transform;}
 
 @media (max-width:640px){.wing-fixed{opacity:.09;}}
-.topnav nav a,.topnav nav button{white-space:nowrap}
-@media (max-width:369px){.topnav-inner{flex-wrap:wrap;justify-content:flex-start;gap:8px 14px;padding-top:9px;padding-bottom:9px}.topnav nav{width:100%;justify-content:space-between;margin-right:0;gap:4px;padding:2px 10px}.nav-menu{right:0}}@media (max-width:640px){.topnav-inner{padding-left:14px;padding-right:14px;gap:8px}.topnav .brand{font-size:.98rem;padding:6px 9px;margin-left:-6px}.topnav nav{gap:2px;padding:2px 6px;margin-right:-6px}.topnav nav a,.topnav nav button{font-size:.8rem;padding:8px 5px;gap:4px}}</style>
+
+.nav-toggle{display:none}
+@media (max-width:640px){
+  .topnav-inner{padding:10px 14px;gap:10px;flex-wrap:nowrap;justify-content:space-between}
+  .topnav .brand{font-size:1.1rem;padding:6px 11px;margin-left:-6px}
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:40px;border:0;border-radius:10px;background:var(--bone,var(--surface));color:var(--ink);cursor:pointer;margin-right:-4px;padding:0}
+  .nav-toggle .burger path{transition:transform .25s ease,opacity .2s ease;transform-origin:12px 12px}
+  .menu-open .nav-toggle .b1{transform:translateY(5px) rotate(45deg)}
+  .menu-open .nav-toggle .b2{opacity:0}
+  .menu-open .nav-toggle .b3{transform:translateY(-5px) rotate(-45deg)}
+  .topnav nav{display:none;position:absolute;left:12px;right:12px;top:calc(100% + 8px);width:auto;margin:0;padding:8px;flex-direction:column;align-items:stretch;gap:0;background:var(--bone,var(--surface));border:1px solid var(--line,var(--surface-border));border-radius:14px;box-shadow:0 3px 10px -4px rgba(0,0,0,.08);max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);overflow-y:auto}
+  .menu-open nav{display:flex}
+  .topnav nav > a, .topnav nav .nav-menu a{display:block;font-size:1.02rem;font-weight:500;padding:13px 12px;border:0;border-radius:8px;white-space:normal;color:var(--ink)}
+  .topnav nav > a:hover, .topnav nav .nav-menu a:hover{background:var(--rust-tint);border:0;color:var(--ink)}
+  .nav-dd{display:block;margin-top:4px;padding-top:6px;border-top:1px solid var(--line,var(--surface-border))}
+  .topnav nav .nav-dd button{display:none !important}
+  .nav-dd::before{content:"Writing";display:block;padding:8px 12px 2px;font-size:.8rem;font-weight:600;color:var(--muted)}
+  .nav-dd .nav-menu{display:flex;position:static;width:auto;padding:0;border:0;box-shadow:none;background:none;flex-direction:column}
+}
+</style>
 
 <div class="page">
 <div class="wing-fixed" id="wingFixed" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
-<header class="topnav" id="top"><div class="topnav-inner"><a class="brand" href="#top" data-nav="top">Elizabeth Maki</a><nav aria-label="Primary"><a href="#top" data-nav="top">Home</a><a href="#about" data-nav="about">About</a><a href="https://lnkd.in/p/gwrY22xy" target="_blank" rel="noopener">AI work<span class="sr-only"> (opens in a new tab on LinkedIn)</span></a><div class="nav-dd"><button type="button" class="nav-writing" id="navWriting" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true">Writing <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-menu" id="navMenu"><a href="your-team-isnt-bad-at-ai-its-grieving/">Your team isn&#39;t bad at AI. They&#39;re grieving.</a><a href="brand-voice-is-language-cognition/">Brand voice is language + cognition</a></div></div></nav></div></header>
+<header class="topnav" id="top"><div class="topnav-inner"><a class="brand" href="#top" data-nav="top">Elizabeth Maki</a><button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu"><svg class="burger" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="b1" d="M4 7h16"/><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg></button><nav aria-label="Primary" id="primaryNav"><a href="#top" data-nav="top">Home</a><a href="#about" data-nav="about">About</a><a href="https://lnkd.in/p/gwrY22xy" target="_blank" rel="noopener">AI work<span class="sr-only"> (opens in a new tab on LinkedIn)</span></a><div class="nav-dd"><button type="button" class="nav-writing" id="navWriting" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true">Writing <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-menu" id="navMenu"><a href="your-team-isnt-bad-at-ai-its-grieving/">Your team isn&#39;t bad at AI. They&#39;re grieving.</a><a href="brand-voice-is-language-cognition/">Brand voice is language + cognition</a></div></div></nav></div></header>
 <main id="main" tabindex="-1">
 <h1 class="sr-only">Elizabeth Maki, brand designer</h1>
 <div class="intro">
@@ -1327,6 +1345,14 @@ const GALLERY_7 = [
 initGallery(document.getElementById('gallery-7'), GALLERY_7);
 initExpand(document.getElementById('section-7').querySelector('.teaser-wrap'));
 
+const topnavEl = document.querySelector('.topnav');
+const navToggle = document.getElementById('navToggle');
+function setNav(open){ topnavEl.classList.toggle('menu-open', open); navToggle.setAttribute('aria-expanded', String(open)); navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+navToggle.addEventListener('click', (e) => { e.stopPropagation(); setNav(!topnavEl.classList.contains('menu-open')); });
+document.querySelectorAll('.topnav nav a').forEach((a) => a.addEventListener('click', () => setNav(false)));
+document.addEventListener('click', (e) => { if (!topnavEl.contains(e.target)) setNav(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && topnavEl.classList.contains('menu-open')) { setNav(false); navToggle.focus(); } });
+window.matchMedia('(min-width:641px)').addEventListener('change', (m) => { if (m.matches) setNav(false); });
 const navLinks = document.querySelectorAll('[data-nav]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 navLinks.forEach((a) => a.addEventListener('click', (e) => {
