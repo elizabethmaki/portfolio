@@ -1,0 +1,38 @@
+:root{--ink:#141210;--bone:#F6F3EC;--text:#33302B;--muted:#605A50;--line:#E6E1D6;--rust:#B25A34;--rust-text:#804125;--rust-tint:#F6E6DF;
+--font-display:'Gilda Display',Georgia,'Times New Roman',serif;--font-sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--text);font-family:var(--font-sans);font-weight:350;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background-image:var(--grain);mix-blend-mode:multiply;opacity:.12;pointer-events:none}
+.wing{position:fixed;z-index:-3;right:-8vw;bottom:-6vh;height:100vh;height:100lvh;aspect-ratio:2010/2928;opacity:.12;background:url(../img/cecropia-wing-accent.webp) center/contain no-repeat;pointer-events:none;transform:translateZ(0)}
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--bone);color:var(--ink);padding:10px 16px;border-radius:10px;font-weight:600;text-decoration:none}
+.skip:focus{left:12px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offset:3px;border-radius:2px}
+.topnav{position:sticky;top:0;z-index:60;background:var(--bone) url(../img/nav-gradient.webp) center/cover no-repeat}
+.topnav-inner{display:flex;align-items:center;justify-content:space-between;gap:34px;padding:14px 60px}
+.topnav .brand,.topnav nav{background:var(--bone);border-radius:10px}
+.topnav .brand{font-family:var(--font-display);font-size:1.45rem;line-height:1;color:var(--ink);text-decoration:none;padding:7px 14px;margin-left:-14px;white-space:nowrap}
+.topnav nav{display:flex;align-items:center;gap:22px;padding:3px 14px;margin-right:-14px}
+.topnav nav a,.topnav nav button{font-family:var(--font-sans);font-weight:500;font-size:.95rem;color:var(--ink);text-decoration:none;background:none;border:0;border-bottom:2px solid transparent;padding:6px 2px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.topnav nav a:hover,.topnav nav button:hover,.topnav nav button[aria-expanded="true"]{color:var(--rust-text);border-bottom-color:var(--rust)}
+.nav-dd{position:relative}
+.nav-menu{display:none;position:absolute;top:calc(100% + 14px);right:-14px;width:min(320px,calc(100vw - 32px));background:var(--bone);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 3px 10px -4px rgba(0,0,0,.08);flex-direction:column;gap:2px}
+button[aria-expanded="true"]+.nav-menu{display:flex}
+.topnav nav .nav-menu a{display:block;padding:10px 12px;border:0;border-radius:8px;font-size:.9rem;line-height:1.35}
+.topnav nav .nav-menu a:hover{background:var(--rust-tint);border:0;color:var(--ink)}
+main{padding:84px 24px 120px}
+article{max-width:680px;margin:0 auto}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.4rem,5.2vw,3.5rem);line-height:1.08;letter-spacing:-.01em;color:var(--ink);margin:0 0 28px;text-wrap:balance}
+.dek{font-size:1.22rem;line-height:1.6;font-weight:400;color:var(--text);margin:0 0 48px}
+h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.7rem,3vw,2.1rem);line-height:1.2;color:var(--ink);margin:64px 0 18px}
+article p{font-size:1.1rem;line-height:1.75;margin:0 0 1.35em}
+.callout{margin:56px 0;padding:0;border:0}
+.callout::before{content:"";display:block;width:48px;height:3px;background:var(--rust);margin-bottom:22px}
+.callout p{font-family:var(--font-display);font-size:clamp(1.55rem,3vw,2rem);line-height:1.28;color:var(--ink);margin:0;text-wrap:balance}
+footer{border-top:1px solid var(--line);padding:32px 24px 64px;text-align:center;font-size:.9rem;color:var(--muted)}
+footer a{color:var(--rust-text)}
+@media (max-width:900px){.topnav-inner{padding:12px 28px}}
+@media (max-width:640px){.topnav-inner{padding:10px 22px;gap:14px}.topnav .brand{font-size:1.05rem;padding:6px 10px;margin-left:-10px}.topnav nav{gap:6px;padding:2px 6px;margin-right:-6px}.topnav nav a,.topnav nav button{font-size:.85rem;padding:8px 6px}main{padding:56px 22px 90px}.wing{opacity:.09}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
