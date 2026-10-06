@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elizabeth Maki | Brand designer</title>
+<meta name="description" content="Elizabeth Maki is a brand designer in Seattle. Identity systems, websites and product branding for B2B companies.">
+<meta name="theme-color" content="#F6F3EC">
+<meta property="og:title" content="Elizabeth Maki | Brand designer">
+<meta property="og:description" content="Identity systems, websites and product branding for B2B companies.">
+<meta property="og:image" content="img/01-rebrand-1-classroom-photo.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/headshot-bw.jpg">
+</head>
+<body style="margin:0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Hanken+Grotesk:ital,wght@0,300..600;1,300..600&display=swap');
+
+:root{
+  
+  --ink:#141210;
+  --bone:#F6F3EC;
+  --rust:#B25A34;
+  --marigold:#D99A2B;
+
+  
+  --ground:#F6F3EC; 
+  --surface:#F6F3EC;
+  --surface-border:#E6E1D6;
+  --text:#33302B;
+  --muted:#6B655B;
+  --stage:#ECE7DB;
+  --rust-tint:#F6E6DF;
+  --rust-text:#804125;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-opacity:.12;
+  --shadow-card:0 3px 10px -4px rgba(0, 0, 0, 0.08); 
+
+  
+  --space-1:8px;
+  --space-2:14px;
+  --space-3:22px;
+  --space-4:34px;
+  --space-5:52px;
+  --space-6:76px;
+  --space-7:108px;
+  --space-8:148px;
+
+  --font-display:'Gilda Display', Georgia, 'Times New Roman', serif;
+  --font-sans:'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --tex-stencil:url("img/stencil.webp"); 
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--ground);
+  color:var(--text);
+  font-family:var(--font-sans);
+  font-weight:350;
+  -webkit-font-smoothing:antialiased;
+}
+
+.section{
+  position:relative;
+  isolation:isolate;
+}
+.section-scroll{
+  padding:var(--space-7) var(--space-6) var(--space-6);
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-5);
+}
+
+.wing-fixed{
+  position:fixed;
+  z-index:-4;
+  right:-8vw;
+  bottom:-6vh;
+  height:100vh;
+  aspect-ratio:2010/2928;
+  opacity:.12; 
+  background:linear-gradient(160deg, var(--rust), var(--marigold));
+  -webkit-mask-image:var(--tex-stencil); mask-image:var(--tex-stencil);
+  -webkit-mask-size:contain; mask-size:contain;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-position:center; mask-position:center;
+  pointer-events:none;
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .reveal{
+    opacity:0;
+    transform:translateY(10px);
+    animation:rise 1.1s cubic-bezier(.25,.1,.25,1) forwards;
+  }
+  .badges.reveal{animation-delay:.1s}
+  h1.reveal, h2.pt.reveal{animation-delay:.3s}
+  .gallery.reveal{animation-delay:.5s}
+  .teaser.reveal{animation-delay:.85s}
+
+  
+  .hero-stage img.first-reveal{
+    animation:hero-wipe 1.6s cubic-bezier(.45,0,.15,1) both;
+  }
+}
+@keyframes rise{ to{opacity:1; transform:translateY(0);} }
+@keyframes hero-wipe{
+  from{ clip-path:inset(0 0 100% 0); }
+  to{ clip-path:inset(0 0 0% 0); }
+}
+
+.badges{display:flex; gap:var(--space-2); flex-wrap:wrap;}
+.badge{
+  font-family:var(--font-sans);
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  color:var(--surface);
+  background:#A9532F; 
+  padding:.4rem .85rem;
+  border-radius:10px; 
+  white-space:nowrap;
+}
+
+.header-block{display:flex; flex-direction:column; gap:calc(var(--space-4) - 4px);}
+h1, h2.pt{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(3.63rem, 4.8vw, 5.03rem); 
+  line-height:1.08;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin:0;
+  text-wrap:balance;
+  max-width:18ch;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1fr minmax(120px, 170px);
+  gap:var(--space-3);
+  align-items:start;
+  width:100%;
+}
+
+.hero-col, .rail-wrap{min-width:0;}
+.gallery.gallery-single{grid-template-columns:1fr;}
+.hero-col{display:flex; flex-direction:column; gap:var(--space-2); min-height:0;}
+.hero-stage{
+  position:relative;
+  border:1px solid var(--surface-border);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:none;
+  aspect-ratio:4/3;
+  background:var(--stage);
+}
+.hero-stage img, .hero-stage video{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  
+  object-fit:contain;
+  opacity:0;
+  transition:opacity .7s cubic-bezier(.25,.1,.25,1);
+}
+.hero-stage img.active, .hero-stage video.active{opacity:1; position:relative;}
+.hero-stage video{background:var(--stage);}
+
+.thumb img.fit-contain{object-fit:contain;}
+.hero-caption{
+  font-size:.85rem;
+  color:var(--muted);
+  margin:0;
+  text-align:left;
+}
+
+.rail-wrap{position:relative;}
+.rail{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-2);
+  max-height:calc(100% + 0px);
+  overflow-y:auto;
+  padding:6px 2px 2px 2px; 
+  scrollbar-width:none; 
+}
+.rail::-webkit-scrollbar{display:none;}
+
+.rail-wrap::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  left:0; right:0; bottom:0;
+  height:36px;
+  background:linear-gradient(to bottom, transparent, var(--ground));
+  opacity:0;
+  transition:opacity .4s ease;
+}
+.rail-wrap.show-fade::after{opacity:1;}
+
+.scroll-indicator{
+  position:absolute;
+  right:1px; top:6px; bottom:2px;
+  width:3px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+}
+.scroll-indicator.visible{opacity:1;}
+.scroll-thumb{
+  position:absolute;
+  right:0; width:3px;
+  border-radius:2px;
+  background:var(--muted);
+}
+.thumb{
+  all:unset;
+  cursor:pointer;
+  display:block;
+  border:2px solid transparent;
+  border-radius:8px;
+  overflow:hidden;
+  aspect-ratio:1;
+  flex-shrink:0; 
+  transition:border-color .4s ease, transform .4s cubic-bezier(.25,.1,.25,1);
+}
+.thumb img{display:block; width:100%; height:100%; object-fit:cover;}
+.thumb{position:relative;}
+.thumb.is-video::after{content:""; position:absolute; left:50%; top:50%; width:30px; height:30px; margin:-15px 0 0 -15px; border-radius:50%;
+  background:rgba(246,243,236,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23141210' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/16px no-repeat; pointer-events:none;}
+.thumb:hover{transform:translateY(-2px);}
+.thumb.active{border-color:var(--rust);}
+.thumb:focus-visible{outline:2px solid var(--rust); outline-offset:2px;}
+
+.teaser-wrap{max-width:62ch;}
+.teaser{
+  font-size:.9rem;
+  line-height:1.65;
+  color:var(--text);
+  margin:0;
+}
+.learn-more{
+  font-family:var(--font-sans);
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--rust-text);
+  background:none;
+  border:none;
+  padding:0;
+  margin-left:.35rem;
+  cursor:pointer;
+}
+.learn-more:hover{text-decoration:underline;}
+.learn-more:focus-visible{outline:2px solid var(--rust); outline-offset:3px; border-radius:2px;}
+
+.expand{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .7s cubic-bezier(.25,.1,.25,1);
+}
+
+.glass-card{
+  margin-top:var(--space-4);
+  padding:var(--space-4);
+  background:rgba(255,255,255,.5);
+  border:1px solid var(--surface-border);
+  border-radius:14px;
+}
+.expand-inner{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-4);
+}
+@media (min-width:700px){
+  .expand-inner{grid-template-columns:1.4fr 1fr;}
+  
+  .expand-inner .close-x{grid-column:1 / -1; justify-self:start;}
+}
+
+.close-x{
+  all:unset;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px; height:26px;
+  border-radius:50%;
+  border:1.5px solid var(--rust);
+  color:var(--rust);
+  
+  transition:background .3s ease, color .3s ease;
+}
+.close-x:hover{background:var(--rust); color:var(--surface);}
+.close-x svg{width:12px; height:12px; display:block;}
+.close-x:focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
+.full-text{
+  font-size:.9rem;
+  line-height:1.65;
+  color:var(--text);
+  margin:0;
+}
+.skills-block h3, .credits-block h3{
+  font-family:var(--font-sans);
+  font-weight:600;
+  font-size:.85rem;
+  color:var(--ink);
+  margin:0 0 var(--space-2);
+  padding-bottom:var(--space-1);
+  border-bottom:1px solid var(--surface-border);
+}
+.skill-list{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:var(--space-1);}
+.skill-list li{
+  font-size:.85rem;
+  color:var(--text);
+  padding-left:var(--space-3);
+  position:relative;
+}
+.skill-list li::before{
+  content:"";
+  position:absolute; left:0; top:.55em;
+  width:6px; height:6px;
+  border-radius:50%;
+  background:var(--marigold);
+}
+
+.credits-block{grid-column:1 / -1;}
+.credits-block p{margin:0; font-size:.85rem; line-height:1.6; color:var(--text); max-width:72ch;}
+
+.page{position:relative; isolation:isolate; background:var(--surface);}
+.page::before{content:""; position:absolute; inset:0; z-index:-2; background-image:var(--grain); mix-blend-mode:multiply; opacity:var(--grain-opacity); pointer-events:none;}
+
+.intro-inner{padding:var(--space-8) var(--space-6) 0;}
+.intro-text{font-family:var(--font-display); font-weight:400; font-size:clamp(1.35rem,2vw,1.75rem); line-height:1.35; color:var(--ink); margin:0; max-width:50ch; text-wrap:pretty;}
+@media (max-width:900px){.intro-inner{padding:var(--space-6) var(--space-4) 0;}}
+@media (max-width:640px){.intro-inner{padding:var(--space-5) var(--space-3) 0;}}
+.title-row{display:flex; justify-content:space-between; align-items:flex-end; gap:var(--space-5); flex-wrap:wrap;}
+.stat{font-family:var(--font-sans); font-style:italic; font-weight:500; font-size:.9rem; line-height:1.55; color:var(--rust-text); margin:0 0 .6rem; max-width:34ch; text-wrap:balance;}
+@media (max-width:900px){.title-row{flex-direction:column; align-items:flex-start; gap:var(--space-2);} .stat{max-width:40ch; margin:0;}}
+@media (prefers-reduced-motion: no-preference){.stat.reveal{animation-delay:.4s}}
+
+.about-bio-more + .about-bio-more{margin-top:var(--space-2);}
+.about-bio-more a{color:var(--rust-text); font-weight:600; text-decoration:none;}
+.about-bio-more a:hover{text-decoration:underline;}
+.about-bio-more a:focus-visible{outline:2px solid var(--rust); outline-offset:3px; border-radius:2px;}
+.about-kid{margin:var(--space-3) 0 0; display:flex; gap:var(--space-2); align-items:center;}
+.about-kid img{width:76px; height:auto; border-radius:10px; flex:0 0 auto;}
+.about-kid figcaption{font-size:.8rem; line-height:1.45; color:var(--ink);}
+.about-panel{max-height:calc(100vh - 48px); overflow-x:hidden; overflow-y:auto;}
+
+.details{margin:0;}
+.details dt{font-size:.8rem; color:var(--muted); margin:0;}
+.details dd{font-size:.85rem; color:var(--text); margin:0 0 var(--space-2);}
+
+.about-widget{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:100;
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-end;
+}
+.about-circle{
+  all:unset;
+  cursor:pointer;
+  flex:0 0 auto;
+  width:46px; height:46px; 
+  border-radius:50%;
+  background:var(--rust);
+  color:var(--ink);
+  font-family:var(--font-sans);
+  font-weight:600;
+  font-size:.62rem;
+  line-height:1.15;
+  letter-spacing:.01em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  box-shadow:var(--shadow-card); 
+  transition:transform .35s cubic-bezier(.25,.1,.25,1);
+}
+.about-circle:hover{transform:scale(1.08);}
+.about-widget.open .about-circle{display:none;}
+
+.about-panel{
+  display:none;
+  position:relative;
+  overflow:hidden;
+  width:min(280px, calc(100vw - 48px)); 
+  background:var(--bone);
+  border:1px solid var(--surface-border);
+  border-radius:14px;
+  padding:var(--space-4);
+  box-shadow:var(--shadow-card);
+}
+.about-widget.open .about-panel{display:block;}
+
+.about-wing-accent{
+  position:absolute;
+  z-index:0;
+  right:-20px;
+  top:0; bottom:0; 
+  aspect-ratio:2010/2928; 
+  width:auto;
+  opacity:.9;
+  background:#FFFFFF;
+  -webkit-mask-image:var(--tex-stencil);
+  mask-image:var(--tex-stencil);
+  -webkit-mask-size:contain; mask-size:contain;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-position:center; mask-position:center;
+  pointer-events:none;
+}
+.about-content{
+  position:relative;
+  z-index:1;
+}
+.about-photo{
+  width:84px; height:84px;
+  object-fit:cover;
+  border-radius:50%; 
+  border:2px solid var(--bone);
+  box-shadow:var(--shadow-card);
+  float:left; 
+  margin:0 var(--space-3) 6px 0; 
+}
+.about-close{
+  clear:both; 
+  margin-top:var(--space-1); 
+}
+.about-bio-more{
+  font-size:.85rem;
+  line-height:1.6;
+  color:var(--ink);
+  margin:0;
+}
+.about-bio{
+  font-size:.85rem;
+  line-height:1.6;
+  color:var(--ink); 
+  margin:0;
+}
+
+@media (max-width:640px){
+  .about-widget{right:14px; bottom:16px;}
+}
+
+@media (max-width:900px){
+  .section-scroll{padding:var(--space-6) var(--space-4) var(--space-5); gap:var(--space-4);}
+  .wing-fixed{right:-10vw; bottom:-4vh;}
+}
+
+@media (max-width:640px){
+  .section-scroll{padding:var(--space-5) var(--space-3) var(--space-4); gap:var(--space-3);}
+  .badge{font-size:.68rem; padding:.35rem .7rem;}
+  h1, h2.pt{font-size:clamp(3.33rem, 9vw, 4.23rem); max-width:20ch;}
+  .gallery{grid-template-columns:1fr;}
+  .rail{
+    flex-direction:row;
+    overflow-x:auto;
+    overflow-y:visible;
+    max-height:none;
+    padding-bottom:2px;
+  }
+  .thumb{flex:0 0 72px;}
+  .rail-wrap::after{
+    left:auto; bottom:0; top:0; right:0;
+    width:36px; height:auto;
+    background:linear-gradient(to right, transparent, var(--ground));
+  }
+  .scroll-indicator{
+    right:2px; left:6px; top:auto; bottom:1px;
+    width:auto; height:3px;
+  }
+  .scroll-thumb{
+    right:auto; top:0; width:auto; height:3px;
+  }
+  .wing-fixed{right:-14vw; bottom:-2vh;} 
+  .hero-stage{border-radius:8px;}
+}
+
+.about-widget.open .about-panel{display:flex; flex-direction:column; padding:0; overflow:hidden; max-height:calc(100vh - 48px); max-height:calc(100dvh - 48px);}
+.about-content{overflow-y:auto; overscroll-behavior:contain; min-height:0; flex:1 1 auto; padding:44px var(--space-4) var(--space-4);}
+.about-content{scrollbar-width:none;}
+.about-content::-webkit-scrollbar{display:none;}
+.about-track{position:absolute; right:6px; top:52px; bottom:14px; width:6px; border-radius:6px; background:rgba(20,18,16,.08); z-index:2; display:none; pointer-events:none;}
+.about-track.on{display:block;}
+.about-thumb{position:absolute; left:0; right:0; top:0; border-radius:6px; background:rgba(178,90,52,.75);}
+.about-panel .about-close{position:absolute; top:12px; right:12px; z-index:3; margin:0; clear:none; width:30px; height:30px; background:var(--surface);}
+.about-bio + .expand{margin-top:var(--space-2);}
+.about-photo{display:block; float:none; width:96px; height:96px; margin:0 0 var(--space-2);}
+.about-bio, .about-bio-more{font-size:.9rem;}
+.about-kid figcaption{font-size:.85rem;}
+@media (max-width:640px){
+  .about-widget{right:14px; bottom:16px;}
+  .about-widget.open .about-panel{width:calc(100vw - 28px); max-height:calc(100vh - 32px); max-height:calc(100dvh - 32px);}
+  .about-content{padding:48px var(--space-3) var(--space-3);}
+  .about-panel .about-close{width:36px; height:36px; top:10px; right:10px;}
+  .about-bio, .about-bio-more{font-size:1rem; line-height:1.6;}
+  .about-photo{width:84px; height:84px;}
+}
+
+.teaser-wrap.wide-card{max-width:none; display:grid; grid-template-columns:minmax(0,1fr) minmax(120px,170px); column-gap:var(--space-3);}
+.wide-card > .teaser, .wide-card > .expand{grid-column:1;}
+.wide-card .expand-inner{grid-template-columns:1.6fr 1fr;}
+.wide-card .full-text{max-width:64ch;}
+@media (max-width:640px){.teaser-wrap.wide-card{display:block;} .wide-card .expand-inner{grid-template-columns:1fr;}}
+
+.wide-card > .teaser{font-size:1.05rem; line-height:1.6; max-width:62ch;}
+.wide-card .learn-more{font-size:1.05rem;}
+
+.wide-card > .teaser-row{grid-column:1; display:flex; justify-content:space-between; align-items:flex-start; gap:var(--space-5);}
+.wide-card .teaser-row .teaser{margin:0; font-size:1.05rem; line-height:1.6; max-width:50ch;}
+.wide-card .teaser-row .stat{font-size:1.05rem; line-height:1.6; font-weight:500; margin:0; max-width:30ch; text-wrap:pretty;}
+@media (max-width:900px){.wide-card > .teaser-row{flex-direction:column; gap:var(--space-2);} .wide-card .teaser-row .stat{max-width:none;}}
+
+.wide-card .glass-card{position:relative;}
+.wide-card .glass-card > .close-x{position:sticky; top:14px; z-index:3; display:flex; width:34px; height:34px; margin:-20px -24px -22px auto; background:var(--surface); box-shadow:var(--shadow-card);}
+.wide-card .glass-card > .close-x svg{width:14px; height:14px;}
+.wide-card .expand-inner{grid-template-columns:1.5fr 1fr 1fr; align-items:start; gap:var(--space-4);}
+.wide-card .credits-block{grid-column:auto;}
+.wide-card .glass-card{padding:var(--space-4) var(--space-4) var(--space-3);}
+@media (max-width:900px){.wide-card .expand-inner{grid-template-columns:1fr; padding-top:30px;} .wide-card .credits-block{grid-column:auto;}}
+
+.credit-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px;}
+.credit-list li{font-size:.85rem; line-height:1.45; color:var(--text);}
+.credit-list .cr-role{color:var(--muted);}
+.credit-list .cr-role::after{content:":";}
+.expand.settled{overflow:visible;}
+
+.topnav{position:sticky; top:0; z-index:60; background:rgba(246,243,236,.94); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); border-bottom:1px solid var(--surface-border);}
+.topnav-inner{display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); padding:14px var(--space-6);}
+.topnav .brand{font-family:var(--font-display); font-size:1.45rem; line-height:1; color:var(--ink); text-decoration:none; letter-spacing:-.005em;}
+.topnav nav{display:flex; gap:var(--space-4);}
+.topnav nav a{font-family:var(--font-sans); font-weight:500; font-size:.95rem; color:var(--text); text-decoration:none; padding:6px 2px; border-bottom:2px solid transparent;}
+.topnav nav a:hover{color:var(--rust-text); border-bottom-color:var(--rust);}
+.topnav a:focus-visible{outline:2px solid var(--rust); outline-offset:3px; border-radius:2px;}
+.intro-inner{padding-top:var(--space-7);}
+.about-divider{padding:0 var(--space-6);}
+.about-divider hr{border:0; border-top:1px solid var(--surface-border); margin:0;}
+#about .section-scroll{padding-top:var(--space-6); padding-bottom:var(--space-8);}
+.about-grid{display:grid; grid-template-columns:minmax(160px,240px) minmax(0,1fr); gap:var(--space-6); align-items:start;}
+.about-portrait{margin:0;}
+.about-portrait img{display:block; width:100%; aspect-ratio:1; object-fit:cover; border-radius:50%; border:2px solid var(--surface); box-shadow:var(--shadow-card);}
+.about-copy{display:flex; flex-direction:column; gap:var(--space-3); max-width:62ch;}
+.about-copy p{margin:0; font-size:1rem; line-height:1.7; color:var(--text);}
+.about-copy .about-lead{font-size:1rem; line-height:1.7; color:var(--text);}
+.about-copy .about-kid{margin:var(--space-2) 0 0; display:flex; gap:var(--space-3); align-items:center;}
+.about-copy .about-kid img{width:96px; height:auto; border-radius:10px; flex:0 0 auto;}
+.about-copy .about-kid figcaption{font-size:.85rem; line-height:1.45; color:var(--ink);}
+@media (max-width:900px){.topnav-inner{padding:12px var(--space-4);} .about-divider{padding:0 var(--space-4);} .about-grid{grid-template-columns:1fr; gap:var(--space-4);} .about-portrait{max-width:160px;}}
+@media (max-width:640px){.topnav-inner{padding:10px var(--space-3);} .topnav .brand{font-size:1.25rem;} .topnav nav{gap:var(--space-3);} .about-divider{padding:0 var(--space-3);}}
+
+.intro-inner{padding:var(--space-7) var(--space-6) var(--space-7);}
+#section-1 .section-scroll{padding-top:0;}
+@media (max-width:900px){.intro-inner{padding:var(--space-6) var(--space-4);}}
+@media (max-width:640px){.intro-inner{padding:var(--space-5) var(--space-3);}}
+
+.topnav{background:var(--surface) url(img/nav-gradient.webp) center / cover no-repeat; -webkit-backdrop-filter:none; backdrop-filter:none; border-bottom:0;}
+.topnav nav a{color:var(--ink);}
+.topnav .brand, .topnav nav{background:var(--surface); border-radius:10px;}
+.topnav .brand{padding:7px 14px; margin-left:-14px;}
+.topnav nav{padding:3px 14px; margin-right:-14px; gap:var(--space-3);}
+
+.topnav nav{align-items:center;}
+.nav-dd{position:relative;}
+.topnav nav button.nav-writing{font-family:var(--font-sans); font-weight:500; font-size:.95rem; color:var(--ink); background:none; border:0; border-bottom:2px solid transparent; padding:6px 2px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;}
+.topnav nav button.nav-writing:hover, .topnav nav button.nav-writing[aria-expanded="true"]{color:var(--rust-text); border-bottom-color:var(--rust);}
+.topnav nav button.nav-writing svg{transition:transform .25s ease;}
+.topnav nav button.nav-writing[aria-expanded="true"] svg{transform:rotate(180deg);}
+.nav-menu{display:none; position:absolute; top:calc(100% + 14px); right:-14px; width:min(320px, calc(100vw - 32px)); background:var(--surface); border:1px solid var(--surface-border); border-radius:14px; padding:8px; box-shadow:var(--shadow-card); flex-direction:column; gap:2px; z-index:70;}
+.nav-writing[aria-expanded="true"] + .nav-menu{display:flex;}
+.topnav nav .nav-menu a{display:block; padding:10px 12px; border:0; border-radius:8px; font-size:.9rem; line-height:1.35; color:var(--ink);}
+.topnav nav .nav-menu a:hover{background:var(--rust-tint); color:var(--ink); border:0;}
+@media (max-width:640px){.topnav nav{gap:var(--space-2);} .topnav .brand{font-size:1.15rem; padding:7px 10px; margin-left:-10px;} .topnav nav{padding:3px 10px; margin-right:-10px;}}
+
+.sr-only{position:absolute !important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0;}
+.skip{position:absolute; left:-9999px; top:8px; z-index:200; background:var(--surface); color:var(--ink); padding:10px 16px; border-radius:10px; font-weight:600; text-decoration:none; box-shadow:var(--shadow-card);}
+.skip:focus{left:12px;}
+#main:focus{outline:none;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-offset:3px; border-radius:2px;}
+.topnav nav button.nav-writing:focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
+.topnav .brand{white-space:nowrap;}
+.learn-more{padding:6px 4px;}
+.hero-caption{color:var(--muted);}
+@media (prefers-reduced-motion: reduce){
+  .expand, .hero-stage img, .thumb, .nav-writing svg{transition:none !important;}
+  html{scroll-behavior:auto;}
+}
+
+@media (max-width:640px){
+  .topnav-inner{gap:var(--space-2);}
+  .topnav .brand{font-size:1.05rem; padding:6px 10px; margin-left:-10px;}
+  .topnav nav{gap:6px; padding:2px 6px; margin-right:-6px;}
+  .topnav nav a, .topnav nav button.nav-writing{font-size:.85rem; padding:8px 6px;}
+}
+@media (max-width:360px){.topnav-inner{padding-left:var(--space-2); padding-right:var(--space-2);} .topnav .brand{font-size:.9rem;} .topnav nav a, .topnav nav button.nav-writing{font-size:.8rem; padding:8px 4px;}}
+</style>
+
+<div class="page">
+<div class="wing-fixed" id="wingFixed" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topnav" id="top"><div class="topnav-inner"><a class="brand" href="#top" data-nav="top">Elizabeth Maki</a><nav aria-label="Primary"><a href="#top" data-nav="top">Home</a><div class="nav-dd"><button type="button" class="nav-writing" id="navWriting" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true">Writing <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-menu" id="navMenu"><a href="https://www.elizabethmaki.com/your-team-isnt-bad-at-ai-its-grieving" target="_blank" rel="noopener">Your team isn&#39;t bad at AI. They&#39;re grieving.<span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.elizabethmaki.com/content" target="_blank" rel="noopener">The same brand, four different jobs<span class="sr-only"> (opens in a new tab)</span></a><a href="https://www.elizabethmaki.com/brand-voice-is-language-cognition" target="_blank" rel="noopener">Brand voice is language + cognition<span class="sr-only"> (opens in a new tab)</span></a></div></div><a href="#about" data-nav="about">About</a></nav></div></header>
+<main id="main" tabindex="-1">
+<h1 class="sr-only">Elizabeth Maki, brand designer</h1>
+<div class="intro">
+  <div class="intro-inner">
+    <p class="intro-text reveal">Pattern recognition is the throughline in my work. A great brand, a great design and great content start when I can take disparate elements and bring them together in one cohesive story. Great stories are built by unearthing the unexpected patterns that, when made visible, feel inevitable. That pattern-finding work is done across language, across ideas and across visuals.</p>
+  </div>
+</div>
+<div class="section" id="section-1">
+  <div class="section-scroll" id="section-1-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">Growth stage</span>
+      <span class="badge">B2B edtech</span>
+      <span class="badge">Rebrand</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">inquirED Rebrand</h2>
+      
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      Led inquirED's company-wide rebrand, from strategy through a brand system the whole team uses.
+      <button class="learn-more" id="toggle-1" aria-expanded="false" aria-controls="expand-panel-1">Learn more<span class="sr-only"> about inquirED Rebrand</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+      <p class="stat reveal">A board member asked which agency we used. We hadn't.</p>
+    </div>
+    <div class="expand" id="expand-panel-1" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-1" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            inquirED read like an education nonprofit, and it needed to read like a company worth paying for. I led the rebrand in-house, from positioning through guidelines and rollout, and directed the photographer whose real classroom photos replaced stock imagery. From April 2024, shortly before launch, to September 2026, inquirED's LinkedIn followers grew 42%.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Company</dt><dd>inquirED</dd><dt>Role</dt><dd>Led the rebrand, art direction and design</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Art direction</span> Elizabeth Maki</li><li><span class="cr-role">Design</span> Elizabeth Maki, Jeremiah Satterthwaite</li><li><span class="cr-role">Photography</span> Saverio Truglia</li><li><span class="cr-role">Illustration</span> Sabrena Khadija</li><li><span class="cr-role">Motion</span> Crew</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-1">
+    <div class="hero-col">
+      <div class="hero-stage" id="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite" id="hero-caption"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" id="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator" id="scrollIndicator"><div class="scroll-thumb" id="scrollThumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="section" id="section-2">
+  <div class="section-scroll" id="section-2-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">0-1</span>
+      <span class="badge">B2B SaaS</span>
+      <span class="badge">Brand identity</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">Basejoy Identity</h2>
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      Built Basejoy's identity from scratch: mark, voice and a design system down to a 15-icon set.
+      <button class="learn-more" id="toggle-2" aria-expanded="false" aria-controls="expand-panel-2">Learn more<span class="sr-only"> about Basejoy Identity</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+      
+    </div>
+    <div class="expand" id="expand-panel-2" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-2" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            Basejoy was built on a promise to open up the black box that databases usually are. The mark reflects that opening, and the rest of the system carries it through with clear structure, a plainspoken voice, and color and type documented down to hex codes and weight ramps. The hardest part was the icon set: fifteen marks for abstract concepts like observability, lineage and threshold, each legible enough that someone outside engineering can still read it.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Client</dt><dd>Basejoy</dd><dt>Role</dt><dd>Sole designer, brand identity</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Design</span> Elizabeth Maki</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-2">
+    <div class="hero-col">
+      <div class="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="section" id="section-3">
+  <div class="section-scroll" id="section-3-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">Growth stage</span>
+      <span class="badge">B2B edtech</span>
+      <span class="badge">Website redesign</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">Website Redesign</h2>
+      
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      Redesigned inquirED's site from wireframe through launch, and wrote much of the copy.
+      <button class="learn-more" id="toggle-3" aria-expanded="false" aria-controls="expand-panel-3">Learn more<span class="sr-only"> about Website Redesign</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+      <p class="stat reveal">Sessions up 62% year over year</p>
+    </div>
+    <div class="expand" id="expand-panel-3" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-3" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            The old site read like a nonprofit brochure and wasn't built to convert. I art directed and designed the redesign, wireframing every page in Figma and building the site map. I also wrote much of the copy, including most of the headlines, and directed the Webflow build and QA with Crew. Sessions rose 62% year over year across the 12 months ending September 2026, and contact-us submissions rose 30% after launch.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Company</dt><dd>inquirED</dd><dt>Role</dt><dd>Art direction, design, wireframes, site map and copy</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Art direction and design</span> Elizabeth Maki</li><li><span class="cr-role">Development</span> Crew</li><li><span class="cr-role">Copy</span> Elizabeth Maki, Martin Andrews, Kelsey Chopin, Jeanette Hardy Baum</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-3">
+    <div class="hero-col">
+      <div class="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="section" id="section-4">
+  <div class="section-scroll" id="section-4-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">Growth stage</span>
+      <span class="badge">B2B edtech</span>
+      <span class="badge">Product branding</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">Inkwell Branding</h2>
+      
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      Built Inkwell's identity from scratch, around making a new, complicated approach to curriculum feel accessible and like the next right step.
+      <button class="learn-more" id="toggle-4" aria-expanded="false" aria-controls="expand-panel-4">Learn more<span class="sr-only"> about Inkwell Branding</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+    </div>
+    <div class="expand" id="expand-panel-4" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-4" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            Inkwell was a new kind of product for the curriculum market: two core curricula, ELA and social studies, combined into one 70-minute instructional block. The idea is a two-for-one at its core, so the name and identity had to reflect both content areas. The assets around it then had to simplify the objections, pain points and questions that a new approach raises. As a second product, Inkwell also dovetailed with the creation of our initial brand architecture system for the inquirED parent brand and its sub-brands.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Company</dt><dd>inquirED</dd><dt>Role</dt><dd>Product branding and design</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Design</span> Elizabeth Maki, Jeremiah Satterthwaite</li><li><span class="cr-role">Naming</span> Elizabeth Maki, Martin Andrews</li><li><span class="cr-role">Character illustration</span> Jeremiah Satterthwaite</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-4">
+    <div class="hero-col">
+      <div class="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="section" id="section-5">
+  <div class="section-scroll" id="section-5-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">Established</span>
+      <span class="badge">B2B services</span>
+      <span class="badge">Icon design</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">Values Icons</h2>
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      Mapped five company values onto five tools from a geotechnical firm's own field.
+      <button class="learn-more" id="toggle-5" aria-expanded="false" aria-controls="expand-panel-5">Learn more<span class="sr-only"> about Values Icons</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+      
+    </div>
+    <div class="expand" id="expand-panel-5" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-5" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            In a pitch to Sanborn Head, a geotechnical engineering firm, I proposed icons for five internal values: integrity, financial strength, servant leadership, collegiality and employee engagement. Instead of pairing each value with a generic icon, I mapped it to a tool from their own field: a compass for integrity, an auger for financial strength, since soil layers reveal generational history.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Prospective client</dt><dd>Sanborn Head</dd><dt>Role</dt><dd>Concept and icon design</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Design</span> Elizabeth Maki</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-5">
+    <div class="hero-col">
+      <div class="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="section" id="section-6">
+  <div class="section-scroll" id="section-6-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">Established</span>
+      <span class="badge">B2B edtech</span>
+      <span class="badge">Production design</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">Illuminate Education</h2>
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      Production design, technical diagrams and illustrations for Illuminate Education, partnered over multiple years.
+      <button class="learn-more" id="toggle-6" aria-expanded="false" aria-controls="expand-panel-6">Learn more<span class="sr-only"> about Illuminate Education</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+      
+    </div>
+    <div class="expand" id="expand-panel-6" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-6" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            I partnered with Illuminate Education over multiple years and built many kinds of assets for them, mostly production design, along with technical diagrams and illustrations. Everything lived inside their existing brand system. This selection includes a 20-page ebook on equitable assessment practices for English learners, supporting infographics, and a process-flow diagram that shows what changes for students, teachers and district leaders in one image.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Client</dt><dd>Illuminate Education</dd><dt>Role</dt><dd>Production design, technical diagrams and illustration</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Production design, diagrams and illustration</span> Elizabeth Maki</li><li><span class="cr-role">Brand system</span> Illuminate Education</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-6">
+    <div class="hero-col">
+      <div class="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="section" id="section-7">
+  <div class="section-scroll" id="section-7-scroll">
+  <div class="header-block">
+    <div class="badges reveal">
+      <span class="badge">Personal</span>
+      <span class="badge">No client</span>
+      <span class="badge">Illustration</span>
+    </div>
+
+    <div class="title-row">
+      <h2 class="reveal pt">Illustration &amp; Ink</h2>
+    </div>
+  </div>
+
+  <div class="teaser-wrap wide-card teaser reveal">
+    <div class="teaser-row">
+      <p class="teaser">
+      My own art practice: watercolor, letterpress cards and digital collage.
+      <button class="learn-more" id="toggle-7" aria-expanded="false" aria-controls="expand-panel-7">Learn more<span class="sr-only"> about Illustration &amp; Ink</span><span aria-hidden="true"> &raquo;</span></button>
+    </p>
+      
+    </div>
+    <div class="expand" id="expand-panel-7" inert>
+      <div class="glass-card">
+        <button class="close-x" id="collapseCaret-7" aria-label="Collapse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        <div class="expand-inner">
+          <p class="full-text">
+            A core belief of mine is that outside interests deepen creativity and broaden perspective visually and intellectually. In my own art practice I work in three mediums: watercolor, letterpress cards and digital collage. The pieces here are a river-and-mountain watercolor, the cards "Big Love" and "More Joy," and Sister Seasons, a diptych of collages of me and my little sister.
+          </p>
+          <div class="skills-block">
+            <h3>Details</h3>
+            <dl class="details"><dt>Client</dt><dd>None, personal work</dd><dt>Role</dt><dd>Illustration, letterpress and collage</dd></dl>
+          </div>
+          <div class="credits-block">
+            <h3>Credits</h3>
+            <ul class="credit-list"><li><span class="cr-role">Illustration</span> Elizabeth Maki</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-7">
+    <div class="hero-col">
+      <div class="hero-stage"></div>
+      <p class="hero-caption" aria-live="polite"></p>
+    </div>
+    <div class="rail-wrap">
+      <div class="rail" role="group" aria-label="Project images"></div>
+      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
+    </div>
+  </div>
+
+    </div>
+</div>
+
+<div class="about-divider" role="presentation"><hr></div>
+
+<div class="section" id="about">
+  <div class="section-scroll" id="about-scroll">
+    <h2 class="reveal pt">About me</h2>
+    <div class="about-grid reveal">
+      <figure class="about-portrait"><img src="img/headshot-bw.jpg" alt="Elizabeth Maki" loading="lazy"></figure>
+      <div class="about-copy">
+        <p class="about-lead">I'm a brand designer based in Seattle. I figure out what a company promises that's unique to them and matters to their customer. Then I direct, design and write everything that goes out into the world to make that case.</p>
+        <p>Before brand, I ran strategy and communications for education programs, so I write like a writer, I ship like a program manager, and I care whether a brand system gets used.</p>
+        <p>Outside of work I row, take photos of the tiles and typography in the wild, read genre fiction, eat a lot of ice cream, and try to be near a river or a lake whenever possible. A Saturday afternoon at my art table, drawing or painting, is my favorite kind of day.</p>
+        <p>I wanted to be a writer growing up, until I took my first college creative writing class and hated everyone in it. I'm terrible at bringing a gift for the host but I always do the dishes. It will take me 3 to 5 business days to answer your text even if you're my sister, but I will absolutely show up to water your garden while you're out of town. None of it resolves, but I find I like it better that way.</p>
+        <figure class="about-kid"><img src="img/about-me.jpg" alt="Elizabeth Maki as a kid, already wanting to be a writer" loading="lazy" /><figcaption>Me, in the 90s, desperately wanting to be a writer.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+</div>
+
+<script>
+
+function makeMedia(item){
+  if (item.video) {
+    const v = document.createElement('video');
+    v.src = item.src; v.poster = item.poster;
+    v.muted = true; v.loop = true; v.playsInline = true; v.controls = true;
+    v.preload = 'none';
+    v.setAttribute('aria-label', item.alt);
+    return v;
+  }
+  const img = document.createElement('img');
+  img.src = item.src; img.alt = item.alt; img.loading = 'lazy';
+  return img;
+}
+
+function initGallery(root, GALLERY){
+  const stage = root.querySelector('.hero-stage');
+  const captionEl = root.querySelector('.hero-caption');
+  const rail = root.querySelector('.rail');
+  const railWrap = root.querySelector('.rail-wrap');
+  const scrollIndicator = root.querySelector('.scroll-indicator');
+  const scrollThumb = root.querySelector('.scroll-thumb');
+
+  if (GALLERY.length <= 1) {
+    root.classList.add('gallery-single');
+    railWrap.remove();
+    const img = document.createElement('img');
+    img.src = GALLERY[0].src; img.alt = GALLERY[0].alt;
+    img.classList.add('active', 'first-reveal');
+    stage.appendChild(img);
+    captionEl.textContent = GALLERY[0].caption;
+    return;
+  }
+
+  GALLERY.forEach((item) => { stage.appendChild(makeMedia(item)); });
+
+  let active = 0;
+
+  function renderRail(){
+    rail.innerHTML = '';
+    GALLERY.forEach((item, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'thumb' + (i === active ? ' active' : '');
+      btn.setAttribute('aria-pressed', String(i === active));
+      btn.setAttribute('aria-label', item.caption);
+      const img = document.createElement('img');
+      img.src = item.poster || item.src; img.alt = ''; img.loading = 'lazy';
+      if (item.video) btn.classList.add('is-video');
+      if (item.fit === 'contain') img.classList.add('fit-contain');
+      btn.appendChild(img);
+      btn.addEventListener('click', () => setActive(i, btn));
+      rail.appendChild(btn);
+    });
+  }
+
+  function setActive(i, btn){
+    if (i === active) return;
+    active = i;
+    [...stage.children].forEach((el, idx) => {
+      el.classList.toggle('active', idx === i);
+      el.inert = idx !== i;
+      if (el.tagName === 'VIDEO') {
+        if (idx === i) { if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) el.play().catch(() => {}); } else { el.pause(); }
+      }
+    });
+    captionEl.textContent = GALLERY[i].caption;
+    renderRail();
+    updateFade();
+  }
+
+  stage.children[0]?.classList.add('active', 'first-reveal');
+  [...stage.children].forEach((el, idx) => { el.inert = idx !== 0; });
+  captionEl.textContent = GALLERY[0].caption;
+  renderRail();
+
+  function syncRailHeight(){
+    if (window.matchMedia('(max-width:640px)').matches) {
+      rail.style.height = '';        // mobile: rail is a horizontal row, height is auto
+      return;
+    }
+    rail.style.height = stage.getBoundingClientRect().height + 'px';
+  }
+  new ResizeObserver(() => { syncRailHeight(); updateFade(); }).observe(stage);
+  window.addEventListener('resize', () => { syncRailHeight(); updateFade(); });
+  syncRailHeight();
+
+  function updateFade(){
+    const vertical = !window.matchMedia('(max-width:640px)').matches;
+    const hasOverflow = vertical
+      ? rail.scrollHeight - rail.clientHeight > 2
+      : rail.scrollWidth - rail.clientWidth > 2;
+    const atEnd = vertical
+      ? rail.scrollTop + rail.clientHeight >= rail.scrollHeight - 2
+      : rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+    railWrap.classList.toggle('show-fade', hasOverflow && !atEnd);
+  }
+  rail.addEventListener('scroll', updateFade);
+  window.addEventListener('resize', updateFade);
+  updateFade();
+
+  let fadeOutTimer = null;
+  function updateScrollThumb(){
+    const vertical = !window.matchMedia('(max-width:640px)').matches;
+    if (vertical) {
+      const ratio = rail.clientHeight / rail.scrollHeight;
+      const travel = rail.clientHeight - (rail.clientHeight * ratio);
+      const pos = rail.scrollHeight <= rail.clientHeight ? 0 : (rail.scrollTop / (rail.scrollHeight - rail.clientHeight)) * travel;
+      scrollThumb.style.height = Math.max(ratio * rail.clientHeight, 16) + 'px';
+      scrollThumb.style.top = pos + 'px';
+      scrollThumb.style.width = '';
+      scrollThumb.style.left = '';
+    } else {
+      const ratio = rail.clientWidth / rail.scrollWidth;
+      const travel = rail.clientWidth - (rail.clientWidth * ratio);
+      const pos = rail.scrollWidth <= rail.clientWidth ? 0 : (rail.scrollLeft / (rail.scrollWidth - rail.clientWidth)) * travel;
+      scrollThumb.style.width = Math.max(ratio * rail.clientWidth, 16) + 'px';
+      scrollThumb.style.height = '';
+      scrollThumb.style.top = '';
+      scrollThumb.style.left = pos + 'px';
+    }
+  }
+  rail.addEventListener('scroll', () => {
+    updateScrollThumb();
+    scrollIndicator.classList.add('visible');
+    clearTimeout(fadeOutTimer);
+    fadeOutTimer = setTimeout(() => scrollIndicator.classList.remove('visible'), 600);
+  });
+  window.addEventListener('resize', updateScrollThumb);
+  updateScrollThumb();
+
+  let hasBouncedTop = false;
+  let hasBouncedBottom = false;
+  rail.addEventListener('wheel', (e) => {
+    const vertical = !window.matchMedia('(max-width:640px)').matches;
+    const delta = vertical ? e.deltaY : e.deltaX;
+    const pos = vertical ? rail.scrollTop : rail.scrollLeft;
+    const max = vertical ? rail.scrollHeight - rail.clientHeight : rail.scrollWidth - rail.clientWidth;
+    const atTop = pos <= 0;
+    const atBottom = pos >= max - 1;
+
+    if (!atTop) hasBouncedTop = false;
+    if (!atBottom) hasBouncedBottom = false;
+
+    const shouldBounce = (atTop && delta < 0 && !hasBouncedTop) || (atBottom && delta > 0 && !hasBouncedBottom);
+    if (!shouldBounce) return;
+    if (atTop) hasBouncedTop = true;
+    if (atBottom) hasBouncedBottom = true;
+
+    const amount = delta < 0 ? 5 : -5;
+    rail.style.transition = 'transform .5s cubic-bezier(.25,.1,.25,1)';
+    rail.style.transform = vertical ? `translateY(${amount}px)` : `translateX(${amount}px)`;
+    setTimeout(() => { rail.style.transform = ''; }, 260);
+  }, { passive:true });
+}
+
+function initExpand(root){
+  const idleHTML = root.querySelector('.learn-more').innerHTML;
+  const toggleBtn = root.querySelector('.learn-more');
+  const panel = root.querySelector('.expand');
+  const collapseCaret = root.querySelector('.close-x');
+
+  function toggleExpand(){
+    const opening = !panel.classList.contains('open');
+    if (opening) {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      clearTimeout(panel._settle); panel._settle = setTimeout(() => { if (panel.classList.contains('open')) panel.classList.add('settled'); }, 760);
+    } else {
+      clearTimeout(panel._settle); panel.classList.remove('settled');
+      panel.style.maxHeight = '0px';
+    }
+    panel.classList.toggle('open', opening);
+    toggleBtn.setAttribute('aria-expanded', String(opening));
+    toggleBtn.innerHTML = opening ? 'Show less<span class="sr-only"> details</span>' : idleHTML;
+    panel.inert = !opening;
+
+    if (opening && !root.classList.contains('wide-card')) {
+      setTimeout(() => {
+        collapseCaret.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      }, 720);
+    }
+  }
+  toggleBtn.addEventListener('click', toggleExpand);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && panel.classList.contains('open')) toggleExpand(); });
+  collapseCaret.addEventListener('click', toggleExpand);
+  window.addEventListener('resize', () => {
+    if (panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px';
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      if (panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px';
+    });
+  }
+}
+
+const GALLERY_1 = [
+  {"src": "img/01-rebrand-1-classroom-photo.jpg", "alt": "Child writing at a desk in a classroom, photographed for the inquirED rebrand", "caption": "Custom classroom photography."},
+  {"src": "img/01-rebrand-2-before-after.jpg", "alt": "inquirED's old shovel-and-book logo next to the new wordmark", "caption": "The old logo on the left, the new wordmark on the right.", "fit": "contain"},
+  {"src": "img/01-rebrand-5-stacked-logo.jpg", "alt": "The stacked inquirED logo in green on bone", "caption": "The stacked inquirED logo."},
+  {"src": "img/01-rebrand-3-brand-system-spread.jpg", "alt": "A spread of pages from the inquirED brand guide", "caption": "Pages from the brand guide: logo use, color, typography, photography and accessibility."},
+  {"src": "img/01-rebrand-4-board-game-kids.jpg", "alt": "Illustration of two children playing a board game among plants", "caption": "Custom illustration by Sabrena Khadija, art directed for the rebrand."},
+  {"src": "video/rebrand-b-roll.mp4", "poster": "video/rebrand-b-roll-poster.jpg", "video": true, "alt": "Classroom B-roll footage", "caption": "Classroom B-roll from the new homepage."}
+];
+initGallery(document.getElementById('gallery-1'), GALLERY_1);
+initExpand(document.getElementById('section-1').querySelector('.teaser-wrap'));
+
+const GALLERY_2 = [
+  {"src": "img/02-basejoy-1-icon-grid.jpg", "alt": "Basejoy's 15-icon system for infrastructure concepts", "caption": "The 15-icon system: translating infrastructure concepts into a shape simple enough to trust at a glance."},
+  {"src": "img/02-basejoy-2-logo.jpg", "alt": "Basejoy logo and mark", "caption": "Logo and mark.", "fit": "contain"},
+  {"src": "img/02-basejoy-3-style-guide-pages.jpg", "alt": "Six pages of the Basejoy brand guidelines", "caption": "The brand guidelines: logo, voice, color with gradients, type and icons."},
+  {"src": "img/02-basejoy-4-icons-in-dataflow.jpg", "alt": "Basejoy icons in a diagram of operational and analytical data", "caption": "The icon language at work, explaining data moving from operational to analytical systems."},
+  {"src": "img/02-basejoy-5-dashboard-tile-optional.jpg", "alt": "Basejoy dashboard graphic with a bar chart on a teal and blue gradient", "caption": "The gradient language applied to a data health dashboard graphic."}
+];
+initGallery(document.getElementById('gallery-2'), GALLERY_2);
+initExpand(document.getElementById('section-2').querySelector('.teaser-wrap'));
+
+const GALLERY_3 = [
+  {"src": "img/03-website-1-homepage-hero.jpg", "alt": "The redesigned inquirED homepage hero", "caption": "Homepage, rebuilt around what a buyer needed to believe before committing."},
+  {"src": "img/03-website-7-before-after-homepage.jpg", "alt": "The old inquirED homepage beside the redesigned homepage", "caption": "The old homepage next to the redesign.", "fit": "contain"},
+  {"src": "img/03-website-4-inkwell-product-page.jpg", "alt": "The Inkwell product page on inquired.org", "caption": "Product pages built on outcomes and classroom experience, not feature lists."},
+  {"src": "img/03-website-6-mobile-set.jpg", "alt": "Three phones showing the homepage, the Inkwell page and the About page", "caption": "Mobile views of the homepage, the Inkwell page and the About page."},
+  {"src": "img/03-website-3-professional-learning.jpg", "alt": "The professional learning page on inquired.org", "caption": "The professional learning page, in the same voice and photography as the rest of the site."},
+  {"src": "img/03-website-9-figma-design-system.jpg", "alt": "Figma frames for the website component library", "caption": "The Figma component library behind the site: colors, type, spacing, buttons, cards, forms and navigation.", "fit": "contain"},
+  {"src": "video/website-process-animation.mp4", "poster": "video/website-process-animation-poster.jpg", "video": true, "alt": "Animated diagram of the inquiry process", "caption": "The animated process diagram on the site."}
+];
+initGallery(document.getElementById('gallery-3'), GALLERY_3);
+initExpand(document.getElementById('section-3').querySelector('.teaser-wrap'));
+
+const GALLERY_4 = [
+  {"src": "img/04-inkwell-1-logo-on-inkwell-purple.jpg", "alt": "Inkwell torn-paper wordmark and quill mark on Inkwell purple", "caption": "Torn-paper wordmark and quill mark."},
+  {"src": "img/04-inkwell-2-ink-texture.jpg", "alt": "Ink-inspired texture from the Inkwell product system", "caption": "Ink textures, cut in house for the product system."},
+  {"src": "img/04-inkwell-3-materials-spread.jpg", "alt": "Inkwell printed materials spread mockup", "caption": "Printed materials spread."},
+  {"src": "img/04-inkwell-4-sticker-sheet.jpg", "alt": "Sheet of character stickers for Inkwell students", "caption": "The Inkwell student sticker sheet, with Inky."},
+  {"src": "img/04-inkwell-5-diagram-traditional-vs-inkwell.jpg", "alt": "Diagram comparing separate subjects with one integrated Inkwell block", "caption": "Traditional ELA and social studies next to Inkwell's single integrated block."},
+  {"src": "img/04-inkwell-6-lesson-plan-objectives.jpg", "alt": "A lesson plan objective with two subjects color-coded", "caption": "A lesson objective with ELA and social studies color-coded inside it."},
+  {"src": "img/04-inkwell-7-assessment-look-fors.jpg", "alt": "Student writing annotated with ELA and social studies look-fors", "caption": "Annotated student work showing what to look for in ELA and social studies."},
+  {"src": "video/inkwell-schedule-venn.mp4", "poster": "video/inkwell-schedule-venn-poster.jpg", "video": true, "alt": "Animated diagram of literacy and social studies overlapping into one schedule", "caption": "Integration as the whole idea: two subjects, one block of time."}
+];
+initGallery(document.getElementById('gallery-4'), GALLERY_4);
+initExpand(document.getElementById('section-4').querySelector('.teaser-wrap'));
+
+const GALLERY_5 = [
+  {"src": "img/05-sanborn-1_concept.jpg", "alt": "Sanborn Head values icons concept page with the geophone icon", "caption": "The concept: a geologic site study, with each value tied to a core geologic tool."},
+  {"src": "img/05-sanborn-2_values.jpg", "alt": "Four of the values with their proposed icons and explanations", "caption": "Each value mapped to a tool from the firm's own field."},
+  {"src": "img/05-sanborn-4_studies.jpg", "alt": "Sanborn Head Collegiality icon studies, rendered across styles", "caption": "Icon studies for Collegiality, the geophone mark, rendered across styles.", "fit": "contain"}
+];
+initGallery(document.getElementById('gallery-5'), GALLERY_5);
+initExpand(document.getElementById('section-5').querySelector('.teaser-wrap'));
+
+const GALLERY_6 = [
+  {"src": "img/06-illuminate-1-process-flowchart.jpg", "alt": "Illuminate process-flow diagram for MTSS intervention decisions", "caption": "Process-flow diagram: what changes for students, teachers, and district leaders.", "fit": "contain"},
+  {"src": "img/06-illuminate-2-book-page-spread.jpg", "alt": "Fanned pages from the Illuminate ebook on equitable assessment for English learners", "caption": "Pages from the 20-page ebook, laid out inside Illuminate's brand system."},
+  {"src": "img/06-illuminate-3-mtss-pyramid.jpg", "alt": "Illuminate MTSS tiered pyramid diagram", "caption": "MTSS pyramid diagram."},
+  {"src": "img/06-illuminate-4-els-quick-look.jpg", "alt": "Illuminate English learners stats infographic", "caption": "English learners stats infographic."}
+];
+initGallery(document.getElementById('gallery-6'), GALLERY_6);
+initExpand(document.getElementById('section-6').querySelector('.teaser-wrap'));
+
+const GALLERY_7 = [
+  {"src": "img/07-illustration-1-peace-like-a-river.jpg", "alt": "Watercolor river-and-mountain composition, personal work", "caption": "A river-and-mountain watercolor, personal practice, not production work."},
+  {"src": "img/07-illustration-2-big-love-more-joy.jpg", "alt": "Two letterpress cards, Big Love in purples and More Joy in gold and ochre", "caption": "\"Big Love\" and \"More Joy,\" letterpress, personal practice.", "fit": "contain"},
+  {"src": "img/07-illustration-3-sister-seasons-diptych.jpg", "alt": "Two digital collages: a child on a tulip over repeating Vernal Equinox type, and a child with a blanket over red leaves beside Summer Solstice type", "caption": "Sister Seasons, a diptych of digital collages of me and my little sister: Vernal Equinox and Summer Solstice.", "fit": "contain"}
+];
+initGallery(document.getElementById('gallery-7'), GALLERY_7);
+initExpand(document.getElementById('section-7').querySelector('.teaser-wrap'));
+
+const navLinks = document.querySelectorAll('[data-nav]');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+navLinks.forEach((a) => a.addEventListener('click', (e) => {
+  e.preventDefault();
+  const behavior = reduceMotion ? 'auto' : 'smooth';
+  if (a.dataset.nav === 'top') { window.scrollTo({ top: 0, behavior }); return; }
+  const target = document.getElementById(a.dataset.nav);
+  const navH = document.querySelector('.topnav').offsetHeight;
+  window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - 8, behavior });
+}));
+
+const navWriting = document.getElementById('navWriting');
+const navMenu = document.getElementById('navMenu');
+function setMenu(open){ navWriting.setAttribute('aria-expanded', String(open)); }
+navWriting.addEventListener('click', (e) => { e.stopPropagation(); setMenu(navWriting.getAttribute('aria-expanded') !== 'true'); });
+document.addEventListener('click', (e) => { if (!navMenu.contains(e.target)) setMenu(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && navWriting.getAttribute('aria-expanded') === 'true') { setMenu(false); navWriting.focus(); } });
+document.querySelector('.nav-dd').addEventListener('focusout', (e) => { if (!e.currentTarget.contains(e.relatedTarget)) setMenu(false); });
+
+</script>
+
+</body>
+</html>
