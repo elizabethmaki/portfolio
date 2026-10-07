@@ -13,7 +13,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offse
 .topnav{position:sticky;top:0;z-index:60;background:var(--bone) url(../img/nav-gradient.webp) center/cover no-repeat}
 .topnav-inner{display:flex;align-items:center;justify-content:space-between;gap:34px;padding:14px 60px}
 .topnav .brand,.topnav nav{background:var(--bone);border-radius:10px}
-.topnav .brand{font-family:var(--font-display);font-size:1.45rem;line-height:1;color:var(--ink);text-decoration:none;padding:7px 14px;margin-left:-14px;white-space:nowrap}
+.topnav .brand{font-family:var(--font-display);font-size:1.75rem;line-height:1;color:var(--ink);text-decoration:none;padding:7px 14px;margin-left:-14px;white-space:nowrap}
 .topnav nav{display:flex;align-items:center;gap:22px;padding:3px 14px;margin-right:-14px}
 .topnav nav a,.topnav nav button{font-family:var(--font-sans);font-weight:500;font-size:.95rem;color:var(--ink);text-decoration:none;background:none;border:0;border-bottom:2px solid transparent;padding:6px 2px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .topnav nav a:hover,.topnav nav button:hover,.topnav nav button[aria-expanded="true"]{color:var(--rust-text);border-bottom-color:var(--rust)}
@@ -41,7 +41,7 @@ footer a{color:var(--rust-text)}
 .nav-toggle{display:none}
 @media (max-width:640px){
 .topnav-inner{padding:10px 14px;gap:10px;flex-wrap:nowrap;justify-content:space-between}
-.topnav .brand{font-size:1.1rem;padding:6px 11px;margin-left:-6px}
+.topnav .brand{font-size:1.75rem;padding:6px 11px;margin-left:-6px}
 .nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:40px;border:0;border-radius:10px;background:var(--bone,var(--surface));color:var(--ink);cursor:pointer;margin-right:-4px;padding:0}
 .nav-toggle .burger path{transition:transform .25s ease,opacity .2s ease;transform-origin:12px 12px}
 .menu-open .nav-toggle .b1{transform:translateY(5px) rotate(45deg)}
