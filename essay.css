@@ -35,7 +35,7 @@ article p{font-size:1.1rem;line-height:1.75;margin:0 0 1.35em}
 footer{border-top:1px solid var(--line);padding:32px 24px 64px;text-align:center;font-size:.9rem;color:var(--muted)}
 footer a{color:var(--rust-text)}
 @media (max-width:900px){.topnav-inner{padding:12px 28px}}
-@media (max-width:640px){main{padding:56px 22px 90px}.wing{opacity:.09}}
+@media (max-width:640px){main{padding:56px 22px 90px}.wing{display:none}}
 
 .topnav nav a,.topnav nav button{white-space:nowrap}
 .nav-toggle{display:none}
