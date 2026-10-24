@@ -650,7 +650,6 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
 }
 
 .gallery:has(.ai-strip){display:block; max-width:none;}
-#section-1 .section-scroll{gap:var(--space-3);}
 #section-1 .teaser-row .teaser{margin:0; min-height:0;}
 .ai-bar{display:flex; justify-content:space-between; align-items:flex-end; gap:var(--space-3); margin-bottom:var(--space-2);}
 .ai-tabs{display:flex; flex-wrap:wrap; border-bottom:1px solid var(--surface-border); flex:1 1 auto; min-height:38px;}
@@ -703,6 +702,12 @@ dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
 .writing-card:hover .wc-go{text-decoration:underline; text-underline-offset:4px;}
 .writing-card:focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
 @media (max-width:900px){.writing-cards{grid-template-columns:1fr;} .writing-strip{margin-top:var(--space-5); height:80px;}}
+
+h1, h2.pt{font-size:clamp(2.6rem, 3.5vw, 3.6rem);}
+.section-scroll{padding-bottom:var(--space-7); gap:var(--space-5);}
+@media (min-width:901px){.gallery, .teaser-wrap.wide-card{max-width:min(calc(66% + 48px), 940px);}}
+@media (max-width:900px){h1, h2.pt{font-size:clamp(2.4rem, 7vw, 3rem); max-width:20ch;} .section-scroll{padding-bottom:var(--space-6); gap:var(--space-5);}}
+@media (max-width:640px){.section-scroll{padding-bottom:var(--space-5); gap:var(--space-4);}}
 </style>
 
 <div class="page">
@@ -789,7 +794,7 @@ dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
       Led inquirED's company-wide rebrand, from strategy through a brand system the whole team uses.
       <button class="learn-more" id="toggle-2" aria-expanded="false" aria-controls="expand-panel-2">Learn more<span class="sr-only"> about inquirED Rebrand</span><span aria-hidden="true"> &raquo;</span></button>
     </p>
-      <p class="stat reveal">A board member asked which agency we used. We hadn't.</p>
+      <p class="stat reveal">A board member asked which agency we used; we hadn't.</p>
     </div>
     <div class="expand" id="expand-panel-2" inert>
       <div class="glass-card">
@@ -806,7 +811,7 @@ dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
           </div>
           <div class="credits-block">
             <h3>Credits</h3>
-            <ul class="credit-list"><li><span class="cr-role">Art direction</span> Elizabeth Maki</li><li><span class="cr-role">Design</span> Elizabeth Maki, Jeremiah Satterthwaite</li><li><span class="cr-role">Photography</span> Saverio Truglia</li><li><span class="cr-role">Illustration</span> Sabrena Khadija</li><li><span class="cr-role">Motion</span> Crew</li></ul>
+            <ul class="credit-list"><li><span class="cr-role">Art direction</span> Elizabeth Maki</li><li><span class="cr-role">Design</span> Elizabeth Maki, Jeremiah Satterthwaite</li><li><span class="cr-role">Photography</span> Saverio Truglia</li><li><span class="cr-role">Illustration</span> Sabrena Khadija</li></ul>
           </div>
         </div>
       </div>
