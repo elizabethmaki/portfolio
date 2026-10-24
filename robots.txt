@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio.elizabethmaki.com/sitemap.xml
+Sitemap: https://elizabethmaki.com/sitemap.xml
