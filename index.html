@@ -676,7 +676,7 @@ dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
 .ai-lb-x:focus-visible, .ai-lb-nav:focus-visible{outline:2px solid #F6F3EC; outline-offset:3px;}
 .ai-lb-stage{display:grid; grid-template-columns:44px minmax(0,1fr) 44px; gap:8px; align-items:center; min-height:0;}
 .ai-lb-stage figure{margin:0; height:100%; min-height:0; display:grid; place-items:center;}
-.ai-lb-stage img{max-height:calc(100dvh - 150px); max-width:100%; border-radius:8px; display:block;}
+.ai-lb-stage img{max-height:calc(100dvh - 200px); max-width:100%; border-radius:8px; display:block;}
 .ai-lb-bottom{display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; font-size:.9rem; font-family:var(--font-sans);}
 .ai-lb-bottom p{margin:0; max-width:62ch;}
 #aiLbCount{font-size:.8rem; color:#A8A294; font-variant-numeric:tabular-nums;}
@@ -729,36 +729,6 @@ h1, h2.pt{font-size:clamp(2.6rem, 3.5vw, 3.6rem);}
 
     <div class="title-row">
       <h2 class="reveal pt">AI Work</h2>
-    </div>
-  </div>
-
-  <div class="teaser-wrap wide-card teaser reveal">
-    <div class="teaser-row">
-      <p class="teaser">
-      
-      <button class="learn-more" id="toggle-1" aria-expanded="false" aria-controls="expand-panel-1">Learn more<span class="sr-only"> about AI Work</span><span aria-hidden="true"> &raquo;</span></button>
-    </p>
-      
-    </div>
-    <div class="expand" id="expand-panel-1" inert>
-      <div class="glass-card">
-        <button class="close-x" id="collapseCaret-1" aria-label="Collapse">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-        <div class="expand-inner">
-          <p class="full-text">
-            Two carousels from my work with ai. In the first, I built lenses and cards that push ai past the mean and toward design it would not reach on its own. In the second, I keep our brand design system in a repo that Claude Code edits and syncs, so a colleague who is not a designer can make a good document, and her next one comes out a little better.
-          </p>
-          <div class="skills-block">
-            <h3>Details</h3>
-            <dl class="details"><dt>Context</dt><dd>Personal projects and my day job</dd><dt>Role</dt><dd>Concept, system design and slide design</dd></dl>
-          </div>
-          <div class="credits-block">
-            <h3>Credits</h3>
-            <ul class="credit-list"><li><span class="cr-role">Art direction and design</span> Elizabeth Maki</li><li><span class="cr-role">Photography</span> Ahmet Olcum, Museums of History New South Wales</li><li><span class="cr-role">Painting</span> Giuseppe Pietro Bagetti, public domain</li><li>Photos via Unsplash</li></ul>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -1361,7 +1331,7 @@ const GALLERY_6 = [
 initGallery(document.getElementById('gallery-6'), GALLERY_6);
 initExpand(document.getElementById('section-6').querySelector('.teaser-wrap'));
 
-const AI_DECKS = [{"id": "c1", "title": "Teaching My AI to Be Creative", "slides": [{"src": "img/08-ai-work-01.jpg", "cap": "My (maybe fruitless) attempt to teach my ai to be creative.", "alt": "Carousel cover reading: My (maybe fruitless) attempt to teach my ai to be creative, over a grainy rust and sky ground"}, {"src": "img/08-ai-work-02.jpg", "cap": "The question I asked, the list the ai came back with, and why that list was not enough.", "alt": "A chat excerpt: a question about exploring within rules, the ai's list of layout options, and the author's reply"}, {"src": "img/08-ai-work-03.jpg", "cap": "What people had already built, and where I wanted to go further.", "alt": "A list of four existing approaches to ai creativity, and three things the author wanted to add"}, {"src": "img/08-ai-work-04.jpg", "cap": "Two ways I get ai to stop going to the same well: a lens and a card.", "alt": "Slide defining a lens and a card, each beside a bar of grainy rust and sky"}, {"src": "img/08-ai-work-05.jpg", "cap": "A lens applies another field's approach to your design.", "alt": "A camera lens ring over a painting of a chandelier, in rust and sky tones"}, {"src": "img/08-ai-work-06.jpg", "cap": "Lenses: six of the 324, shown as layout sketches.", "alt": "Six layout sketches, each labeled with a lens such as Pilot, Electrician and Surgeon"}, {"src": "img/08-ai-work-07.jpg", "cap": "A card forces a different choice, even when it seems wrong.", "alt": "Hands playing cards around a table, in rust and sky tones"}, {"src": "img/08-ai-work-08.jpg", "cap": "Cards: four of the 103. Every idea gets one lens and one card, drawn at random.", "alt": "Four cards, each a rule for how a design gets made"}, {"src": "img/08-ai-work-09.jpg", "cap": "One public paper laid out by rules, then by a lens and a card.", "alt": "A research paper laid out in two ways: a plain page, and a dark page designed with a lens and a card"}]}, {"id": "c2", "title": "Brand System Carousel", "slides": [{"src": "img/09-brand-system-01.jpg", "cap": "People at my company have always been stoked about our brand, but now it's starting to feel like their own.", "alt": "A Slack exchange in which a colleague says the new set-up is life changing"}, {"src": "img/09-brand-system-02.jpg", "cap": "How I got to \"life-changing\": four steps, starting with a PM who needed a doc.", "alt": "Four steps in text, from a colleague needing a document to staying in the loop while she worked"}, {"src": "img/09-brand-system-03.jpg", "cap": "What's under the hood: every change is made in the repo, and Claude Code syncs it out.", "alt": "A diagram of a brand design system repo feeding Claude Design and marketing plugin skills, which produce the output"}, {"src": "img/09-brand-system-04.jpg", "cap": "A little better every time: how a stuck moment becomes a fix to the system.", "alt": "A loop from a colleague getting stuck to a fix pushed to the design system"}, {"src": "img/09-brand-system-05.jpg", "cap": "If ai is making people feel like they own the brand too, yes please.", "alt": "Closing statements in serif type over a grainy rust and marigold ground"}]}];
+const AI_DECKS = [{"id": "c1", "title": "Teaching My AI to Be Creative", "slides": [{"src": "img/08-ai-work-01.jpg", "cap": "", "alt": "Carousel cover reading: My (maybe fruitless) attempt to teach my ai to be creative, over a grainy rust and sky ground"}, {"src": "img/08-ai-work-02.jpg", "cap": "", "alt": "A chat excerpt: a question about exploring within rules, the ai's list of layout options, and the author's reply"}, {"src": "img/08-ai-work-03.jpg", "cap": "", "alt": "A list of four existing approaches to ai creativity, and three things the author wanted to add"}, {"src": "img/08-ai-work-04.jpg", "cap": "", "alt": "Slide defining a lens and a card, each beside a bar of grainy rust and sky"}, {"src": "img/08-ai-work-05.jpg", "cap": "Photo: Ahmet Olcum on Unsplash. Painting: Giuseppe Pietro Bagetti, public domain.", "alt": "A camera lens ring over a painting of a chandelier, in rust and sky tones"}, {"src": "img/08-ai-work-06.jpg", "cap": "", "alt": "Six layout sketches, each labeled with a lens such as Pilot, Electrician and Surgeon"}, {"src": "img/08-ai-work-07.jpg", "cap": "Photo: Museums of History New South Wales on Unsplash.", "alt": "Hands playing cards around a table, in rust and sky tones"}, {"src": "img/08-ai-work-08.jpg", "cap": "", "alt": "Four cards, each a rule for how a design gets made"}, {"src": "img/08-ai-work-09.jpg", "cap": "", "alt": "A research paper laid out in two ways: a plain page, and a dark page designed with a lens and a card"}]}, {"id": "c2", "title": "Brand System Carousel", "slides": [{"src": "img/09-brand-system-01.jpg", "cap": "", "alt": "A Slack exchange in which a colleague says the new set-up is life changing"}, {"src": "img/09-brand-system-02.jpg", "cap": "", "alt": "Four steps in text, from a colleague needing a document to staying in the loop while she worked"}, {"src": "img/09-brand-system-03.jpg", "cap": "", "alt": "A diagram of a brand design system repo feeding Claude Design and marketing plugin skills, which produce the output"}, {"src": "img/09-brand-system-04.jpg", "cap": "", "alt": "A loop from a colleague getting stuck to a fix pushed to the design system"}, {"src": "img/09-brand-system-05.jpg", "cap": "", "alt": "Closing statements in serif type over a grainy rust and marigold ground"}]}];
 function initAiWork(root){
   const tabs = root.querySelector('.ai-tabs'), strip = root.querySelector('.ai-strip');
   const lb = document.getElementById('aiLb');
@@ -1371,7 +1341,7 @@ function initAiWork(root){
     const d = AI_DECKS[cur.d], sl = d.slides[cur.i];
     document.getElementById('aiLbTitle').textContent = d.title;
     const img = document.getElementById('aiLbImg'); img.src = sl.src; img.alt = sl.alt;
-    document.getElementById('aiLbCap').textContent = sl.cap;
+    const capEl = document.getElementById('aiLbCap'); capEl.textContent = sl.cap; capEl.hidden = !sl.cap;
     document.getElementById('aiLbCount').textContent = d.slides.length > 1 ? (cur.i + 1) + ' of ' + d.slides.length : '1 slide';
     document.getElementById('aiLbPrev').disabled = cur.i === 0;
     document.getElementById('aiLbNext').disabled = cur.i === d.slides.length - 1;
@@ -1391,7 +1361,7 @@ function initAiWork(root){
     const d = AI_DECKS[deck];
     strip.replaceChildren(...d.slides.map((sl, i) => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'ai-slide';
-      b.setAttribute('aria-label', 'Open slide ' + (i + 1) + ' of ' + d.slides.length + ': ' + sl.cap);
+      b.setAttribute('aria-label', 'Open slide ' + (i + 1) + ' of ' + d.slides.length + ': ' + sl.alt);
       const im = document.createElement('img'); im.src = sl.src; im.alt = ''; b.appendChild(im);
       b.onclick = () => openLb(deck, i, b); return b;
     }));
@@ -1412,7 +1382,6 @@ function initAiWork(root){
   renderStrip();
 }
 initAiWork(document.getElementById('gallery-1'));
-initExpand(document.getElementById('section-1').querySelector('.teaser-wrap'));
 
 const topnavEl = document.querySelector('.topnav');
 const navToggle = document.getElementById('navToggle');
