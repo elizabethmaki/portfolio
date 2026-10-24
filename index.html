@@ -686,11 +686,8 @@ dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
   .ai-lb-nav{display:none;}
 }
 
-.writing-strip{height:110px; margin-top:var(--space-6); background:var(--surface) url(img/writing-strip.webp) center / cover no-repeat;}
-#writing .section-scroll{padding-top:var(--space-6);}
 .writing-cards{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-3);}
 .writing-card{display:flex; flex-direction:column; text-decoration:none; color:inherit; min-width:0; background:var(--bone); border:1px solid var(--surface-border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-card);}
-.wc-band{display:block; height:44px; background-size:cover; background-position:center;}
 .wc-body{display:flex; flex-direction:column; gap:var(--space-2); padding:var(--space-4); flex:1 1 auto;}
 .writing-card h3{margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(1.4rem,2.6vw,1.75rem); line-height:1.2; color:var(--ink); text-wrap:balance;}
 .wc-open{margin:0; font-size:.95rem; line-height:1.6; color:var(--text); display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden;}
@@ -701,7 +698,7 @@ dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
 .writing-card:hover{border-color:var(--rust);}
 .writing-card:hover .wc-go{text-decoration:underline; text-underline-offset:4px;}
 .writing-card:focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
-@media (max-width:900px){.writing-cards{grid-template-columns:1fr;} .writing-strip{margin-top:var(--space-5); height:80px;}}
+@media (max-width:900px){.writing-cards{grid-template-columns:1fr;}}
 
 h1, h2.pt{font-size:clamp(2.6rem, 3.5vw, 3.6rem);}
 .section-scroll{padding-bottom:var(--space-7); gap:var(--space-5);}
@@ -1035,17 +1032,14 @@ h1, h2.pt{font-size:clamp(2.6rem, 3.5vw, 3.6rem);}
     </div>
 </div>
 
-<div class="writing-strip" aria-hidden="true"></div>
 <div class="section" id="writing">
   <div class="section-scroll" id="writing-scroll">
     <div class="header-block"><h2 class="reveal pt">Writing</h2></div>
     <div class="writing-cards">
       <a class="writing-card" href="your-team-isnt-bad-at-ai-its-grieving/">
-        <span class="wc-band" style="background-image:url(img/writing-band-1.webp)" aria-hidden="true"></span>
         <div class="wc-body"><h3>Your Team Isn’t Bad at AI. They’re Grieving.</h3><p class="wc-open">“I’ve got a great idea,” I told my manager. “I’m going to build our design system, turn it into a plugin, push it to our org repo, and train everyone to run it themselves.” I paused. “I guess then I won’t have a job.”</p><p class="wc-pull">You have a team of people grieving, trying to learn from a tool that’s the cause of it.</p><div class="wc-foot"><span class="wc-go">Read the essay</span><span class="wc-read">5 min read</span></div></div>
       </a>
       <a class="writing-card" href="brand-voice-is-language-cognition/">
-        <span class="wc-band" style="background-image:url(img/writing-band-2.webp)" aria-hidden="true"></span>
         <div class="wc-body"><h3>Brand Voice Is Language + Cognition</h3><p class="wc-open">For the umpteenth time, my producer, our team’s heaviest hitter for writing, came to me with a voice problem. My plate was full and I’d been ignoring it.</p><p class="wc-pull">A voice guide takes a person and flattens them into three adjectives and a list of approved words.</p><div class="wc-foot"><span class="wc-go">Read the essay</span><span class="wc-read">9 min read</span></div></div>
       </a>
     </div>
