@@ -27,6 +27,7 @@
 <header class="topnav"><div class="topnav-inner"><a class="brand" href="../">Elizabeth Maki</a>
 <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu"><svg class="burger" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="b1" d="M4 7h16"/><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg></button><nav aria-label="Primary" id="primaryNav"><a href="../">Home</a><a href="../#about">About</a><a href="https://lnkd.in/p/gwrY22xy" target="_blank" rel="noopener">AI work<span class="sr-only"> (opens in a new tab on LinkedIn)</span></a>
 <div class="nav-dd"><button type="button" id="navWriting" aria-expanded="false" aria-controls="navMenu" aria-haspopup="true">Writing <svg viewBox="0 0 12 12" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="nav-menu" id="navMenu"><a href="../your-team-isnt-bad-at-ai-its-grieving/">Your Team Isn’t Bad at AI. They’re Grieving.</a><a href="../brand-voice-is-language-cognition/">Brand Voice Is Language + Cognition</a></div></div></nav></div></header>
+<a class="back" id="back" href="../#writing" aria-label="Back to the portfolio"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4 3 8l4 4"/></svg><span>Back</span></a>
 <main id="main" tabindex="-1">
 <article>
 <h1>Brand Voice Is Language + Cognition</h1>
@@ -93,6 +94,7 @@ navToggle.addEventListener('click', (e) => { e.stopPropagation(); setNav(!topnav
 document.querySelectorAll('.topnav nav a').forEach((a) => a.addEventListener('click', () => setNav(false)));
 document.addEventListener('click', (e) => { if (!topnavEl.contains(e.target)) setNav(false); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && topnavEl.classList.contains('menu-open')) { setNav(false); navToggle.focus(); } });
+document.getElementById('back').addEventListener('click', (e) => { try { const r = new URL(document.referrer), home = new URL('../', location.href); if (r.origin === home.origin && r.pathname === home.pathname) { e.preventDefault(); history.back(); } } catch (_) {} });
 const btn = document.getElementById('navWriting');
 btn.addEventListener('click', (e) => { e.stopPropagation(); btn.setAttribute('aria-expanded', String(btn.getAttribute('aria-expanded') !== 'true')); });
 document.addEventListener('click', (e) => { if (!document.getElementById('navMenu').contains(e.target)) btn.setAttribute('aria-expanded', 'false'); });

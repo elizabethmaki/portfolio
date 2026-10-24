@@ -32,6 +32,10 @@ article p{font-size:1.1rem;line-height:1.75;margin:0 0 1.35em}
 .callout{position:relative;margin:56px 0;padding:0 0 0 68px;border:0}
 .callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:40px;background:url(../img/pull-gradient.webp) top left/40px 200px no-repeat;background-color:var(--rust)}
 .callout p{font-family:var(--font-sans);font-style:italic;font-weight:400;font-size:clamp(1.216rem,calc(3vw - 5.33px),1.666rem);line-height:1.4;color:var(--ink);margin:0;text-wrap:balance}
+.back{position:fixed;z-index:40;left:16px;bottom:20px;display:inline-flex;align-items:center;gap:8px;height:48px;min-width:48px;justify-content:center;border-radius:24px;background:var(--bone);border:1.5px solid var(--line);color:var(--ink);text-decoration:none;font-family:var(--font-sans);font-weight:500;font-size:.95rem;box-shadow:0 3px 10px -4px rgba(0,0,0,.18);transition:background .2s,border-color .2s,color .2s}
+.back span{display:none}
+.back:hover,.back:focus-visible{background:var(--rust);border-color:var(--rust);color:var(--bone)}
+@media (min-width:1000px){.back{left:max(24px,calc((100vw - 680px) / 2 - 128px));top:96px;bottom:auto;height:44px;padding:0 18px 0 14px}.back span{display:inline}}
 footer{border-top:1px solid var(--line);padding:32px 24px 64px;text-align:center;font-size:.9rem;color:var(--muted)}
 footer a{color:var(--rust-text)}
 @media (max-width:900px){.topnav-inner{padding:12px 28px}}
