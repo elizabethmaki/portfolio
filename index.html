@@ -29,7 +29,11 @@
   --ink:#141210;
   --bone:#F6F3EC;
   --rust:#B25A34;
-  --marigold:#D99A2B;
+  --sky:#9CC7E6; 
+  --sky-tint:#E8F1F8;
+  --sky-tint-strong:#D3E5F2;
+  --sky-text:#27547A; 
+  --on-sky:#141210;
 
   
   --ground:#F6F3EC; 
@@ -89,7 +93,7 @@ body{
   height:100vh;
   aspect-ratio:2010/2928;
   opacity:.12; 
-  background:linear-gradient(160deg, var(--rust), var(--marigold));
+  background:linear-gradient(160deg, var(--rust) 0 56%, var(--sky) 56% 100%); 
   -webkit-mask-image:var(--tex-stencil); mask-image:var(--tex-stencil);
   -webkit-mask-size:contain; mask-size:contain;
   -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
@@ -330,7 +334,7 @@ h1, h2.pt{
   position:absolute; left:0; top:.55em;
   width:6px; height:6px;
   border-radius:50%;
-  background:var(--marigold);
+  background:var(--sky);
 }
 
 .credits-block{grid-column:1 / -1;}
@@ -622,7 +626,7 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
   .wide-card .teaser-row .teaser, .wide-card .teaser-row .stat{flex:0 0 auto; max-width:none; width:100%;}
 }
 
-.wing-fixed{background:url(img/cecropia-wing-accent.webp) center / contain no-repeat; -webkit-mask-image:none; mask-image:none; height:100vh; height:100lvh; transform:translateZ(0); backface-visibility:hidden; will-change:transform;}
+.wing-fixed{height:100vh; height:100lvh; transform:translateZ(0); backface-visibility:hidden; will-change:transform;}
 
 @media (max-width:640px){.wing-fixed{display:none;}}
 
