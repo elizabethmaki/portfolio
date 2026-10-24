@@ -648,6 +648,61 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
   .nav-dd::before{content:"Writing";display:block;padding:8px 12px 2px;font-size:.8rem;font-weight:600;color:var(--muted)}
   .nav-dd .nav-menu{display:flex;position:static;width:auto;padding:0;border:0;box-shadow:none;background:none;flex-direction:column}
 }
+
+.gallery:has(.ai-strip){display:block; max-width:none;}
+#section-1 .section-scroll{gap:var(--space-3);}
+#section-1 .teaser-row .teaser{margin:0; min-height:0;}
+.ai-bar{display:flex; justify-content:space-between; align-items:flex-end; gap:var(--space-3); margin-bottom:var(--space-2);}
+.ai-tabs{display:flex; flex-wrap:wrap; border-bottom:1px solid var(--surface-border); flex:1 1 auto; min-height:38px;}
+.ai-tabs[hidden]{display:block; border-bottom:0;}
+.ai-tabs button{all:unset; cursor:pointer; box-sizing:border-box; padding:8px 14px 10px; margin-bottom:-1px; border-bottom:2px solid transparent; font-family:var(--font-sans); font-weight:600; font-size:.95rem; color:var(--muted);}
+.ai-tabs button[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--rust);}
+.ai-tabs button:focus-visible{outline:2px solid var(--rust); outline-offset:2px;}
+.ai-nudge{display:flex; gap:6px; flex:0 0 auto;}
+.ai-nudge button{width:36px; height:36px; border-radius:50%; border:1.5px solid var(--surface-border); background:transparent; color:var(--text); display:grid; place-items:center; cursor:pointer;}
+.ai-nudge button:hover{border-color:var(--rust); color:var(--rust-text);}
+.ai-strip{display:flex; gap:var(--space-2); overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:10px; scrollbar-width:thin;}
+.ai-strip .ai-slide{all:unset; box-sizing:border-box; cursor:pointer; flex:0 0 auto; height:300px; aspect-ratio:4/5; border:1px solid var(--surface-border); border-radius:8px; overflow:hidden; background:var(--stage); scroll-snap-align:start;}
+.ai-strip .ai-slide img{display:block; width:100%; height:100%; object-fit:cover;}
+.ai-strip .ai-slide:hover{border-color:var(--rust);}
+.ai-strip .ai-slide:focus-visible, .ai-strip:focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
+dialog.ai-lb{border:0; padding:0; background:transparent; max-width:none; max-height:none; width:100vw; height:100dvh; color:#F6F3EC;}
+dialog.ai-lb::backdrop{background:rgba(15,14,12,.88);}
+.ai-lb-inner{height:100%; display:grid; grid-template-rows:auto minmax(0,1fr) auto; gap:12px; padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));}
+.ai-lb-top{display:flex; justify-content:space-between; align-items:center; gap:12px;}
+.ai-lb-title{font-family:var(--font-display); font-size:1.15rem;}
+.ai-lb-x, .ai-lb-nav{width:40px; height:40px; border-radius:50%; border:1.5px solid #8A847A; background:transparent; color:#F6F3EC; display:grid; place-items:center; cursor:pointer;}
+.ai-lb-nav{width:44px; height:44px;}
+.ai-lb-nav:disabled{opacity:.25; cursor:default;}
+.ai-lb-x:focus-visible, .ai-lb-nav:focus-visible{outline:2px solid #F6F3EC; outline-offset:3px;}
+.ai-lb-stage{display:grid; grid-template-columns:44px minmax(0,1fr) 44px; gap:8px; align-items:center; min-height:0;}
+.ai-lb-stage figure{margin:0; height:100%; min-height:0; display:grid; place-items:center;}
+.ai-lb-stage img{max-height:calc(100dvh - 150px); max-width:100%; border-radius:8px; display:block;}
+.ai-lb-bottom{display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; font-size:.9rem; font-family:var(--font-sans);}
+.ai-lb-bottom p{margin:0; max-width:62ch;}
+#aiLbCount{font-size:.8rem; color:#A8A294; font-variant-numeric:tabular-nums;}
+@media (max-width:640px){
+  .ai-strip .ai-slide{height:240px;}
+  .ai-lb-stage{grid-template-columns:minmax(0,1fr);}
+  .ai-lb-nav{display:none;}
+}
+
+.writing-strip{height:110px; margin-top:var(--space-6); background:var(--surface) url(img/writing-strip.webp) center / cover no-repeat;}
+#writing .section-scroll{padding-top:var(--space-6);}
+.writing-cards{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--space-3);}
+.writing-card{display:flex; flex-direction:column; text-decoration:none; color:inherit; min-width:0; background:var(--bone); border:1px solid var(--surface-border); border-radius:14px; overflow:hidden; box-shadow:var(--shadow-card);}
+.wc-band{display:block; height:44px; background-size:cover; background-position:center;}
+.wc-body{display:flex; flex-direction:column; gap:var(--space-2); padding:var(--space-4); flex:1 1 auto;}
+.writing-card h3{margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(1.4rem,2.6vw,1.75rem); line-height:1.2; color:var(--ink); text-wrap:balance;}
+.wc-open{margin:0; font-size:.95rem; line-height:1.6; color:var(--text); display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden;}
+.wc-pull{margin:0; padding-left:16px; border-left:3px solid var(--rust); font-family:var(--font-display); font-size:1.15rem; line-height:1.3; color:var(--ink);}
+.wc-foot{margin-top:auto; padding-top:var(--space-2); display:flex; justify-content:space-between; align-items:center; gap:var(--space-2);}
+.wc-go{font-weight:600; font-size:.95rem; color:var(--rust-text);}
+.wc-read{font-size:.85rem; color:var(--muted); font-variant-numeric:tabular-nums;}
+.writing-card:hover{border-color:var(--rust);}
+.writing-card:hover .wc-go{text-decoration:underline; text-underline-offset:4px;}
+.writing-card:focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
+@media (max-width:900px){.writing-cards{grid-template-columns:1fr;} .writing-strip{margin-top:var(--space-5); height:80px;}}
 </style>
 
 <div class="page">
@@ -665,22 +720,18 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
 <div class="section" id="section-1">
   <div class="section-scroll" id="section-1-scroll">
   <div class="header-block">
-    <div class="badges reveal">
-      <span class="badge">Personal work</span>
-      <span class="badge">AI</span>
-      <span class="badge">System design</span>
-    </div>
+    
 
     <div class="title-row">
-      <h2 class="reveal pt">Teaching My AI to Be Creative</h2>
+      <h2 class="reveal pt">AI Work</h2>
     </div>
   </div>
 
   <div class="teaser-wrap wide-card teaser reveal">
     <div class="teaser-row">
       <p class="teaser">
-      I built a system of lenses and cards to push ai past the mean and toward design it would not reach on its own.
-      <button class="learn-more" id="toggle-1" aria-expanded="false" aria-controls="expand-panel-1">Learn more<span class="sr-only"> about Teaching My AI to Be Creative</span><span aria-hidden="true"> &raquo;</span></button>
+      
+      <button class="learn-more" id="toggle-1" aria-expanded="false" aria-controls="expand-panel-1">Learn more<span class="sr-only"> about AI Work</span><span aria-hidden="true"> &raquo;</span></button>
     </p>
       
     </div>
@@ -691,11 +742,11 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
           </button>
         <div class="expand-inner">
           <p class="full-text">
-            ai tends toward the mean, and I needed it to work at the frontier. People had tackled parts of this problem before, so I built two more ways to push it. A lens is a way of seeing the problem, borrowed from another field. A card is a rule of play that forces a different choice. Every idea gets one lens and one card, drawn at random, and new lenses come from real archives and job descriptions, never from the model's imagination.
+            Two carousels from my work with ai. In the first, I built lenses and cards that push ai past the mean and toward design it would not reach on its own. In the second, I keep our brand design system in a repo that Claude Code edits and syncs, so a colleague who is not a designer can make a good document, and her next one comes out a little better.
           </p>
           <div class="skills-block">
             <h3>Details</h3>
-            <dl class="details"><dt>Client</dt><dd>None, personal work</dd><dt>Role</dt><dd>Concept, system design and slide design</dd></dl>
+            <dl class="details"><dt>Context</dt><dd>Personal projects and my day job</dd><dt>Role</dt><dd>Concept, system design and slide design</dd></dl>
           </div>
           <div class="credits-block">
             <h3>Credits</h3>
@@ -707,14 +758,11 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
   </div>
 
   <div class="gallery reveal" id="gallery-1">
-    <div class="hero-col">
-      <div class="hero-stage"></div>
-      <p class="hero-caption" aria-live="polite"></p>
+    <div class="ai-bar">
+      <div class="ai-tabs" role="tablist" aria-label="Carousels"></div>
+      <div class="ai-nudge"><button type="button" class="ai-back" aria-label="Scroll slides left"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button><button type="button" class="ai-fwd" aria-label="Scroll slides right"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button></div>
     </div>
-    <div class="rail-wrap">
-      <div class="rail" role="group" aria-label="Project images"></div>
-      <div class="scroll-indicator"><div class="scroll-thumb"></div></div>
-    </div>
+    <div class="ai-strip" tabindex="0" role="group" aria-label="Slides, scroll sideways"></div>
   </div>
 
     </div>
@@ -1012,6 +1060,22 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
     </div>
 </div>
 
+<div class="writing-strip" aria-hidden="true"></div>
+<div class="section" id="writing">
+  <div class="section-scroll" id="writing-scroll">
+    <div class="header-block"><h2 class="reveal pt">Writing</h2></div>
+    <div class="writing-cards">
+      <a class="writing-card" href="your-team-isnt-bad-at-ai-its-grieving/">
+        <span class="wc-band" style="background-image:url(img/writing-band-1.webp)" aria-hidden="true"></span>
+        <div class="wc-body"><h3>Your Team Isn’t Bad at AI. They’re Grieving.</h3><p class="wc-open">“I’ve got a great idea,” I told my manager. “I’m going to build our design system, turn it into a plugin, push it to our org repo, and train everyone to run it themselves.” I paused. “I guess then I won’t have a job.”</p><p class="wc-pull">You have a team of people grieving, trying to learn from a tool that’s the cause of it.</p><div class="wc-foot"><span class="wc-go">Read the essay</span><span class="wc-read">5 min read</span></div></div>
+      </a>
+      <a class="writing-card" href="brand-voice-is-language-cognition/">
+        <span class="wc-band" style="background-image:url(img/writing-band-2.webp)" aria-hidden="true"></span>
+        <div class="wc-body"><h3>Brand Voice Is Language + Cognition</h3><p class="wc-open">For the umpteenth time, my producer, our team’s heaviest hitter for writing, came to me with a voice problem. My plate was full and I’d been ignoring it.</p><p class="wc-pull">A voice guide takes a person and flattens them into three adjectives and a list of approved words.</p><div class="wc-foot"><span class="wc-go">Read the essay</span><span class="wc-read">9 min read</span></div></div>
+      </a>
+    </div>
+  </div>
+</div>
 <div class="about-divider" role="presentation"><hr></div>
 
 <div class="section" id="about">
@@ -1023,13 +1087,24 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--rust); outline-off
         <p class="about-lead">I'm a brand designer based in Seattle. I figure out what a company promises that's unique to them and matters to their customer. Then I direct, design and write everything that goes out into the world to make that case.</p>
         <p>Before brand, I ran strategy and communications for education programs, so I write like a writer, I ship like a program manager, and I care whether a brand system gets used.</p>
         <p>Outside of work I row, take photos of the tiles and typography in the wild, read genre fiction, eat a lot of ice cream, and try to be near a river or a lake whenever possible. A Saturday afternoon at my art table, drawing or painting, is my favorite kind of day.</p>
-        <p>I wanted to be a writer growing up, until I took my first college creative writing class and hated everyone in it. I'm terrible at bringing a gift for the host but I always do the dishes. It will take me 3 to 5 business days to answer your text even if you're my sister, but I will absolutely show up to water your garden while you're out of town. None of it resolves, but I find I like it better that way.</p>
+        <p>I wanted to be a writer growing up, until I took my first college creative writing class and hated everyone in it. I'm terrible at bringing a gift for the host but I always do the dishes. It will take me 3 to 5 business days to answer a friend's text, but I will absolutely show up to water your garden while you're out of town. None of it resolves, but I find I like it better that way.</p>
         <figure class="about-kid"><img src="img/about-me.jpg" alt="Elizabeth Maki as a kid, already wanting to be a writer" /><figcaption>Me, in the 90s, desperately wanting to be a writer.</figcaption></figure>
       </div>
     </div>
   </div>
 </div>
 </main>
+<dialog class="ai-lb" id="aiLb" aria-label="Slide viewer">
+  <div class="ai-lb-inner">
+    <div class="ai-lb-top"><span class="ai-lb-title" id="aiLbTitle"></span><button type="button" class="ai-lb-x" id="aiLbClose" aria-label="Close"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"/></svg></button></div>
+    <div class="ai-lb-stage">
+      <button type="button" class="ai-lb-nav" id="aiLbPrev" aria-label="Previous slide"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+      <figure><img id="aiLbImg" alt=""></figure>
+      <button type="button" class="ai-lb-nav" id="aiLbNext" aria-label="Next slide"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+    </div>
+    <div class="ai-lb-bottom"><p id="aiLbCap"></p><span id="aiLbCount"></span></div>
+  </div>
+</dialog>
 </div>
 
 <script>
@@ -1227,20 +1302,6 @@ function initExpand(root){
   }
 }
 
-const GALLERY_1 = [
-  {"src": "img/08-ai-work-01.jpg", "alt": "Carousel cover reading: My (maybe fruitless) attempt to teach my ai to be creative, over a grainy rust and sky ground", "caption": "My (maybe fruitless) attempt to teach my ai to be creative.", "fit": "contain"},
-  {"src": "img/08-ai-work-02.jpg", "alt": "A chat excerpt: a question about exploring within rules, the ai's list of layout options, and the author's reply", "caption": "The question I asked, the list the ai came back with, and why that list was not enough.", "fit": "contain"},
-  {"src": "img/08-ai-work-03.jpg", "alt": "A list of four existing approaches to ai creativity, and three things the author wanted to add", "caption": "What people had already built, and where I wanted to go further.", "fit": "contain"},
-  {"src": "img/08-ai-work-04.jpg", "alt": "Slide defining a lens and a card, each beside a bar of grainy rust and sky", "caption": "Two ways I get ai to stop going to the same well: a lens and a card.", "fit": "contain"},
-  {"src": "img/08-ai-work-05.jpg", "alt": "A camera lens ring over a painting of a chandelier, in rust and sky tones", "caption": "A lens applies another field's approach to your design.", "fit": "contain"},
-  {"src": "img/08-ai-work-06.jpg", "alt": "Six layout sketches, each labeled with a lens such as Pilot, Electrician and Surgeon", "caption": "Lenses: six of the 324, shown as layout sketches.", "fit": "contain"},
-  {"src": "img/08-ai-work-07.jpg", "alt": "Hands playing cards around a table, in rust and sky tones", "caption": "A card forces a different choice, even when it seems wrong.", "fit": "contain"},
-  {"src": "img/08-ai-work-08.jpg", "alt": "Four cards, each a rule for how a design gets made", "caption": "Cards: four of the 103. Every idea gets one lens and one card, drawn at random.", "fit": "contain"},
-  {"src": "img/08-ai-work-09.jpg", "alt": "A research paper laid out in two ways: a plain page, and a dark page designed with a lens and a card", "caption": "One public paper laid out by rules, then by a lens and a card.", "fit": "contain"}
-];
-initGallery(document.getElementById('gallery-1'), GALLERY_1);
-initExpand(document.getElementById('section-1').querySelector('.teaser-wrap'));
-
 const GALLERY_2 = [
   {"src": "img/01-rebrand-1-classroom-photo.jpg", "alt": "Child writing at a desk in a classroom, photographed for the inquirED rebrand", "caption": "Custom classroom photography."},
   {"src": "img/01-rebrand-2-before-after.jpg", "alt": "inquirED's old shovel-and-book logo next to the new wordmark", "caption": "The old logo on the left, the new wordmark on the right.", "fit": "contain"},
@@ -1294,6 +1355,59 @@ const GALLERY_6 = [
 ];
 initGallery(document.getElementById('gallery-6'), GALLERY_6);
 initExpand(document.getElementById('section-6').querySelector('.teaser-wrap'));
+
+const AI_DECKS = [{"id": "c1", "title": "Teaching My AI to Be Creative", "slides": [{"src": "img/08-ai-work-01.jpg", "cap": "My (maybe fruitless) attempt to teach my ai to be creative.", "alt": "Carousel cover reading: My (maybe fruitless) attempt to teach my ai to be creative, over a grainy rust and sky ground"}, {"src": "img/08-ai-work-02.jpg", "cap": "The question I asked, the list the ai came back with, and why that list was not enough.", "alt": "A chat excerpt: a question about exploring within rules, the ai's list of layout options, and the author's reply"}, {"src": "img/08-ai-work-03.jpg", "cap": "What people had already built, and where I wanted to go further.", "alt": "A list of four existing approaches to ai creativity, and three things the author wanted to add"}, {"src": "img/08-ai-work-04.jpg", "cap": "Two ways I get ai to stop going to the same well: a lens and a card.", "alt": "Slide defining a lens and a card, each beside a bar of grainy rust and sky"}, {"src": "img/08-ai-work-05.jpg", "cap": "A lens applies another field's approach to your design.", "alt": "A camera lens ring over a painting of a chandelier, in rust and sky tones"}, {"src": "img/08-ai-work-06.jpg", "cap": "Lenses: six of the 324, shown as layout sketches.", "alt": "Six layout sketches, each labeled with a lens such as Pilot, Electrician and Surgeon"}, {"src": "img/08-ai-work-07.jpg", "cap": "A card forces a different choice, even when it seems wrong.", "alt": "Hands playing cards around a table, in rust and sky tones"}, {"src": "img/08-ai-work-08.jpg", "cap": "Cards: four of the 103. Every idea gets one lens and one card, drawn at random.", "alt": "Four cards, each a rule for how a design gets made"}, {"src": "img/08-ai-work-09.jpg", "cap": "One public paper laid out by rules, then by a lens and a card.", "alt": "A research paper laid out in two ways: a plain page, and a dark page designed with a lens and a card"}]}, {"id": "c2", "title": "Brand System Carousel", "slides": [{"src": "img/09-brand-system-01.jpg", "cap": "People at my company have always been stoked about our brand, but now it's starting to feel like their own.", "alt": "A Slack exchange in which a colleague says the new set-up is life changing"}, {"src": "img/09-brand-system-02.jpg", "cap": "How I got to \"life-changing\": four steps, starting with a PM who needed a doc.", "alt": "Four steps in text, from a colleague needing a document to staying in the loop while she worked"}, {"src": "img/09-brand-system-03.jpg", "cap": "What's under the hood: every change is made in the repo, and Claude Code syncs it out.", "alt": "A diagram of a brand design system repo feeding Claude Design and marketing plugin skills, which produce the output"}, {"src": "img/09-brand-system-04.jpg", "cap": "A little better every time: how a stuck moment becomes a fix to the system.", "alt": "A loop from a colleague getting stuck to a fix pushed to the design system"}, {"src": "img/09-brand-system-05.jpg", "cap": "If ai is making people feel like they own the brand too, yes please.", "alt": "Closing statements in serif type over a grainy rust and marigold ground"}]}];
+function initAiWork(root){
+  const tabs = root.querySelector('.ai-tabs'), strip = root.querySelector('.ai-strip');
+  const lb = document.getElementById('aiLb');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let deck = 0, cur = {d: 0, i: 0}, opener = null;
+  function showSlide(){
+    const d = AI_DECKS[cur.d], sl = d.slides[cur.i];
+    document.getElementById('aiLbTitle').textContent = d.title;
+    const img = document.getElementById('aiLbImg'); img.src = sl.src; img.alt = sl.alt;
+    document.getElementById('aiLbCap').textContent = sl.cap;
+    document.getElementById('aiLbCount').textContent = d.slides.length > 1 ? (cur.i + 1) + ' of ' + d.slides.length : '1 slide';
+    document.getElementById('aiLbPrev').disabled = cur.i === 0;
+    document.getElementById('aiLbNext').disabled = cur.i === d.slides.length - 1;
+  }
+  function openLb(d, i, from){ cur = {d: d, i: i}; opener = from; showSlide(); lb.showModal(); document.getElementById('aiLbClose').focus(); }
+  function step(n){ const j = cur.i + n; if (j >= 0 && j < AI_DECKS[cur.d].slides.length){ cur.i = j; showSlide(); } }
+  document.getElementById('aiLbPrev').onclick = () => step(-1);
+  document.getElementById('aiLbNext').onclick = () => step(1);
+  document.getElementById('aiLbClose').onclick = () => lb.close();
+  lb.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  lb.addEventListener('close', () => { if (opener && document.contains(opener)) opener.focus(); });
+  let tx = null;
+  lb.addEventListener('touchstart', (e) => { tx = e.touches[0].clientX; }, {passive: true});
+  lb.addEventListener('touchend', (e) => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1); tx = null; });
+  function renderStrip(){
+    const d = AI_DECKS[deck];
+    strip.replaceChildren(...d.slides.map((sl, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'ai-slide';
+      b.setAttribute('aria-label', 'Open slide ' + (i + 1) + ' of ' + d.slides.length + ': ' + sl.cap);
+      const im = document.createElement('img'); im.src = sl.src; im.alt = ''; b.appendChild(im);
+      b.onclick = () => openLb(deck, i, b); return b;
+    }));
+    strip.scrollLeft = 0;
+    tabs.querySelectorAll('button').forEach((t, i) => { t.setAttribute('aria-selected', String(i === deck)); t.tabIndex = i === deck ? 0 : -1; });
+  }
+  if (AI_DECKS.length > 1){
+    AI_DECKS.forEach((d, i) => {
+      const t = document.createElement('button'); t.type = 'button'; t.setAttribute('role', 'tab'); t.textContent = d.title;
+      t.onclick = () => { deck = i; renderStrip(); };
+      t.onkeydown = (e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ deck = (deck + (e.key === 'ArrowRight' ? 1 : AI_DECKS.length - 1)) % AI_DECKS.length; renderStrip(); tabs.querySelectorAll('button')[deck].focus(); } };
+      tabs.appendChild(t);
+    });
+  } else { tabs.hidden = true; }
+  const by = (dir) => strip.scrollBy({left: dir * strip.clientWidth * 0.8, behavior: reduce ? 'auto' : 'smooth'});
+  root.querySelector('.ai-back').onclick = () => by(-1);
+  root.querySelector('.ai-fwd').onclick = () => by(1);
+  renderStrip();
+}
+initAiWork(document.getElementById('gallery-1'));
+initExpand(document.getElementById('section-1').querySelector('.teaser-wrap'));
 
 const topnavEl = document.querySelector('.topnav');
 const navToggle = document.getElementById('navToggle');
